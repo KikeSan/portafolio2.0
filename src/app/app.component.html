@@ -1,5 +1,12 @@
 <div fullpage id="fullpage" [options]="config" (ref)="getRef($event)">
-  <div class="section">Some section1</div>
+  <div class="section">
+    <particles
+      [style]="myStyle"
+      [width]="width"
+      [height]="height"
+      [params]="myParams"
+    ></particles>
+  </div>
   <div class="section" (click)="fullpage_api.moveSectionDown()">
     Some section2
   </div>
