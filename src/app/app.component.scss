@@ -1,1 +1,16 @@
 @import url("https://unpkg.com/fullpage.js/dist/fullpage.min.css");
+
+.baseLogo {
+  background-color: blue;
+  width: 30%;
+  height: 100%;
+  z-index: 9;
+  position: relative;
+}
+.header {
+  position: absolute;
+  z-index: 99;
+}
+#menu {
+  display: flex;
+}

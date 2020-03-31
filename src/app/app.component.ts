@@ -49,6 +49,7 @@ export class AppComponent {
       position: "fixed",
       width: "100%",
       height: "100%",
+      "z-index": 1,
       top: 0,
       left: 0,
       right: 0,
@@ -106,7 +107,7 @@ export class AppComponent {
           enable: true,
           distance: 150,
           color: "#ffffff",
-          opacity: 0.3,
+          opacity: 0.4,
           width: 1
         },
         move: {
