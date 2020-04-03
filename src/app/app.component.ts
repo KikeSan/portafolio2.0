@@ -20,7 +20,7 @@ export class AppComponent {
     // for more details on config options please visit fullPage.js docs
     this.config = {
       // fullpage options
-      licenseKey: null, //"YOUR LICENSE KEY HERE",
+      licenseKey: "^cC$QOO^h7", //"YOUR LICENSE KEY HERE",
       anchors: [
         "firstPage",
         "secondPage",
@@ -140,9 +140,9 @@ export class AppComponent {
         },
         modes: {
           grab: {
-            distance: 200,
+            distance: 250,
             line_linked: {
-              opacity: 0.3
+              opacity: 0.4
             }
           },
           bubble: {
