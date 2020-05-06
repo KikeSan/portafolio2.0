@@ -1,19 +1,72 @@
 @import url("https://unpkg.com/fullpage.js/dist/fullpage.min.css");
 @import "../variables.scss";
 
+%gradientBlue {
+  background: rgba(9, 24, 120, 1);
+  background: -moz-linear-gradient(
+    45deg,
+    rgba(9, 24, 120, 1) 0%,
+    rgba(2, 12, 63, 1) 100%
+  );
+  background: -webkit-gradient(
+    left bottom,
+    right top,
+    color-stop(0%, rgba(9, 24, 120, 1)),
+    color-stop(100%, rgba(2, 12, 63, 1))
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(9, 24, 120, 1) 0%,
+    rgba(2, 12, 63, 1) 100%
+  );
+  background: -o-linear-gradient(
+    45deg,
+    rgba(9, 24, 120, 1) 0%,
+    rgba(2, 12, 63, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    45deg,
+    rgba(9, 24, 120, 1) 0%,
+    rgba(2, 12, 63, 1) 100%
+  );
+  background: linear-gradient(
+    45deg,
+    rgba(9, 24, 120, 1) 0%,
+    rgba(2, 12, 63, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#091878', endColorstr='#020c3f', GradientType=1 );
+}
+
 .baseLogo {
-  background-color: blue;
-  width: 30%;
+  @extend %gradientBlue;
+  width: 60%;
   height: 100%;
+  transform: skew(20deg);
   z-index: 9;
   position: relative;
+  left: -10%;
+  //overflow: hidden;
+  &:after {
+    content: "";
+    background-image: url("../assets/grunge.png");
+    right: -65px;
+    position: absolute;
+    width: 114px;
+    height: 105%;
+    background-size: cover;
+    top: -8px;
+  }
 }
 .header {
   position: absolute;
   z-index: 99;
+  pointer-events: none;
 }
 #menu {
   display: flex;
+  li {
+    pointer-events: all;
+  }
 }
 
 .menuRedes {
@@ -21,12 +74,19 @@
   z-index: 9;
   height: 100vh;
   background-color: $azul;
-  width: 100px;
+  width: 80px;
 
   ul {
     list-style: none;
     padding: 0;
     position: absolute;
     bottom: 0;
+
+    a {
+      color: $rojo;
+      padding: 5px 23px;
+      display: block;
+      text-align: center;
+    }
   }
 }
