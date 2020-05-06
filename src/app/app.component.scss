@@ -1,4 +1,5 @@
 @import url("https://unpkg.com/fullpage.js/dist/fullpage.min.css");
+@import "../variables.scss";
 
 .baseLogo {
   background-color: blue;
@@ -13,4 +14,19 @@
 }
 #menu {
   display: flex;
+}
+
+.menuRedes {
+  position: absolute;
+  z-index: 9;
+  height: 100vh;
+  background-color: $azul;
+  width: 100px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+  }
 }
