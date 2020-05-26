@@ -44,13 +44,14 @@ export class AppComponent {
         "lastPage",
       ],
       menu: "#menu",
+      navigation: true,
 
       // fullpage callbacks
       afterResize: () => {
         console.log("After resize");
       },
       afterLoad: (origin, destination, direction) => {
-        console.log(origin.index);
+        console.log("Estoy en: ", origin.index);
       },
     };
   }
