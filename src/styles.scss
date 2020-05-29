@@ -46,4 +46,43 @@ body {
   @extend %bgWeb;
   //background-color: #0e2773 !important;
   color: white !important;
+  &::after {
+    content: "";
+    background-image: url(./assets/noise.png?background=#09187800&noise=1b51a1&density=54&opacity=75);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    opacity: 0.3;
+  }
+
+  #fp-nav {
+    ul li {
+      margin: 80px 7px;
+      a {
+        span {
+          width: 7px;
+          height: 7px;
+          background: #737897;
+        }
+        &.active {
+          span {
+            width: 7px;
+            height: 7px;
+            &:before {
+              content: "";
+              width: 25px;
+              height: 25px;
+              background: rgba(255, 255, 255, 0.2);
+              display: block;
+              border-radius: 50%;
+              margin-left: -10px;
+              margin-top: -10px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
