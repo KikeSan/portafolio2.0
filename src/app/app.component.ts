@@ -31,6 +31,8 @@ export class AppComponent {
   config: any;
   fullpage_api: any;
 
+  menuredes: boolean = false;
+
   constructor() {
     // for more details on config options please visit fullPage.js docs
     this.config = {
@@ -50,8 +52,11 @@ export class AppComponent {
       afterResize: () => {
         console.log("After resize");
       },
-      afterLoad: (origin, destination, direction) => {
-        console.log("Estoy en: ", origin.index);
+      onLeave: (origin, destination, direction) => {
+        console.log("Estoy en: ", destination.index);
+        destination.index > 0
+          ? (this.menuredes = true)
+          : (this.menuredes = false);
       },
     };
   }

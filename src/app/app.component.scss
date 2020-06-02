@@ -92,12 +92,12 @@
 
 .baseLogo {
   @extend %gradientBlue;
-  width: 60%;
+  width: 58%;
   height: 100%;
-  transform: skew(20deg);
+  transform: skew(19deg);
   z-index: 9;
   position: relative;
-  left: -10%;
+  left: -14%;
   //overflow: hidden;
   &:after {
     content: "";
@@ -142,6 +142,17 @@
       text-align: center;
     }
   }
+
+  &.menuDesactive {
+    left: -80px;
+    opacity: 0;
+    @include transition(all 0.3s 0s ease-out);
+  }
+  &.menuActive {
+    left: 0px;
+    opacity: 1;
+    @include transition(all 0.3s 0s ease-in);
+  }
 }
 
 #fullpage {
@@ -158,8 +169,66 @@
       position: absolute;
       z-index: 0;
       top: 0;
-      opacity: 0.4;
+      opacity: 0.2;
       left: 0;
+    }
+    .baseLogo {
+      &:before {
+        content: "";
+        background-image: url(../assets/noise.png?background=#09187800&noise=1b51a1&density=54&opacity=75);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        opacity: 0.1;
+        left: 0;
+      }
+    }
+    .bio {
+      position: absolute;
+      top: 66%;
+      left: 4%;
+      z-index: 10;
+      .title {
+        font-family: $yanone;
+        font-size: 26px;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $celeste;
+      }
+      h1 {
+        font-family: $vollkorn;
+        font-size: 50px;
+        text-transform: uppercase;
+      }
+
+      .redesBio {
+        list-style: none;
+        padding: 0;
+        margin-top: 60px;
+        li.itemRedes {
+          display: inline-block;
+          a.itemLink {
+            color: $rojo;
+            margin-right: 25px;
+            .itemIcon {
+              //transform: scale(1);
+              font-size: 28px;
+            }
+            &:hover {
+              .itemIcon {
+                //transform: scale(1.1);
+                font-size: 32px;
+                @include transition(
+                  all 0.3s 0s cubic-bezier(0.34, 1.56, 0.64, 1)
+                );
+                //transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

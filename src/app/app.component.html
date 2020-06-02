@@ -1,4 +1,6 @@
-<div class="menuRedes">
+<div
+  [className]="menuredes ? 'menuRedes menuActive' : ' menuRedes menuDesactive'"
+>
   <a href="#" class="logoKike">K</a>
   <ul>
     <li class="itemRedes">
@@ -64,14 +66,46 @@
       [params]="myParams"
     ></particles>
     <div class="baseLogo"></div>
+    <div class="bio">
+      <div class="title">Frontend Developer | UX/UI | Designer</div>
+      <h1>Enrique Sanchez Q.</h1>
+      <ul class="redesBio">
+        <li class="itemRedes">
+          <a href="#" class="itemLink">
+            <fa-icon [icon]="faGithub" class="itemIcon"></fa-icon>
+          </a>
+        </li>
+        <li class="itemRedes">
+          <a href="#" class="itemLink">
+            <fa-icon [icon]="faBehance" class="itemIcon"></fa-icon>
+          </a>
+        </li>
+        <li class="itemRedes">
+          <a href="#" class="itemLink">
+            <fa-icon [icon]="faLinkedinIn" class="itemIcon"></fa-icon>
+          </a>
+        </li>
+        <li class="itemRedes">
+          <a href="#" class="itemLink">
+            <fa-icon [icon]="faInstagram" class="itemIcon"></fa-icon>
+          </a>
+        </li>
+        <li class="itemRedes">
+          <a href="#" class="itemLink">
+            <fa-icon [icon]="faDribbble" class="itemIcon"></fa-icon>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="section" (click)="fullpage_api.moveSectionDown()">
     Some section2
   </div>
   <div class="section">
-    <div class="slide">Slide 2.1</div>
+    <!-- <div class="slide">Slide 2.1</div>
     <div class="slide">Slide 2.2</div>
-    <div class="slide">Slide 2.3</div>
+		<div class="slide">Slide 2.3</div> -->
+    Section 3
   </div>
   <div class="section" (click)="fullpage_api.moveTo('secondPage', 2)">
     Some section4

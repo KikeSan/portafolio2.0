@@ -1,5 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;500;600&family=Yanone+Kaffeesatz:wght@300;400;500&display=swap");
+
+$vollkorn: "Vollkorn", serif;
+$yanone: "Yanone Kaffeesatz", sans-serif;
+
 $azul: #0c1239;
 $rojo: #ff214f;
+$celeste: #457ff9;
 
 @mixin breakpoint($break) {
   @if $break == L {
@@ -60,4 +66,38 @@ $rojo: #ff214f;
   -webkit-box-shadow: $prop;
   -moz-box-shadow: $prop;
   box-shadow: $prop;
+}
+
+@keyframes scale-easeOutElastic {
+  0% {
+    transform: scale(1);
+  }
+
+  16% {
+    transform: scale(-0.32);
+  }
+
+  28% {
+    transform: scale(0.13);
+  }
+
+  44% {
+    transform: scale(-0.05);
+  }
+
+  59% {
+    transform: scale(0.02);
+  }
+
+  73% {
+    transform: scale(-0.01);
+  }
+
+  88% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(0);
+  }
 }
