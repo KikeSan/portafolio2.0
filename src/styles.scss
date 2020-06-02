@@ -60,6 +60,7 @@ body {
   }
 
   #fp-nav {
+    margin-right: 10px;
     ul li {
       margin: 80px 7px;
       &:after {
@@ -70,6 +71,11 @@ body {
         height: 85px;
         background: rgba(255, 255, 255, 0.2);
         margin-left: 10px;
+      }
+      &:last-child {
+        &:after {
+          display: none;
+        }
       }
       a {
         span {
