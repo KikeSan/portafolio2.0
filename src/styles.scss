@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 //@import "../node_modules/fullpage.js/dist/fullpage.min.css";
+@import "./variables.scss";
+
 %bgWeb {
   background: rgba(9, 24, 120, 1);
   background: -moz-radial-gradient(
@@ -60,11 +62,21 @@ body {
   #fp-nav {
     ul li {
       margin: 80px 7px;
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: 85px;
+        background: rgba(255, 255, 255, 0.2);
+        margin-left: 10px;
+      }
       a {
         span {
           width: 7px;
           height: 7px;
-          background: #737897;
+          background: rgba(255, 255, 255, 0.3);
+          margin: 0 !important;
         }
         &.active {
           span {
@@ -74,11 +86,29 @@ body {
               content: "";
               width: 25px;
               height: 25px;
-              background: rgba(255, 255, 255, 0.2);
+              background: rgba(255, 255, 255, 0.1);
               display: block;
               border-radius: 50%;
-              margin-left: -10px;
-              margin-top: -10px;
+              margin-left: -9px;
+              margin-top: -9px;
+              @include transition(all 0.5s 0s ease-out);
+            }
+          }
+        }
+        &:hover {
+          span {
+            width: 7px !important;
+            height: 7px !important;
+            &:before {
+              content: "";
+              width: 25px;
+              height: 25px;
+              background: rgba(255, 255, 255, 0.1);
+              display: block;
+              border-radius: 50%;
+              margin-left: -9px;
+              margin-top: -9px;
+              @include transition(all 0.5s 0s ease-out);
             }
           }
         }
