@@ -6,6 +6,7 @@ import {
   faBehance,
   faDribbble,
   faInstagram,
+  faMediumM,
 } from "@fortawesome/free-brands-svg-icons";
 
 @Component({
@@ -20,6 +21,7 @@ export class AppComponent {
   faBehance = faBehance;
   faInstagram = faInstagram;
   faDribbble = faDribbble;
+  faMedium = faMediumM;
 
   title = "webpage";
 

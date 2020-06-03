@@ -122,6 +122,42 @@
   }
 }
 
+li.itemRedes {
+  display: inline-block;
+  a.itemLink {
+    color: $rojo;
+    margin-right: 25px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    .itemIcon {
+      transform: scale(1);
+      font-size: 28px;
+      position: absolute;
+      left: 50%;
+      margin-left: -13px;
+      top: 50%;
+      margin-top: -22px;
+      @include transition(all 0.3s 0s cubic-bezier(0.34, 1.56, 0.64, 1));
+    }
+    &:hover {
+      color: white;
+      .itemIcon {
+        transform: scale(1.2);
+        //font-size: 32px;
+        left: 50%;
+        margin-left: -13px;
+        top: 50%;
+        margin-top: -24px;
+        @include transition(all 0.2s 0s cubic-bezier(0.34, 1.56, 0.64, 1));
+        //transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+    }
+  }
+}
+
 .menuRedes {
   position: absolute;
   z-index: 9;
@@ -134,13 +170,20 @@
     padding: 0;
     position: absolute;
     bottom: 15px;
+    text-align: center;
+    li {
+      a {
+        display: block;
+        margin: 0 9px 10px 5px;
+      }
+    }
 
-    a {
+    /* a {
       color: $rojo;
       padding: 5px 23px;
       display: block;
       text-align: center;
-    }
+    } */
   }
 
   &.menuDesactive {
@@ -207,45 +250,6 @@
         list-style: none;
         padding: 0;
         margin-top: 60px;
-        li.itemRedes {
-          display: inline-block;
-          a.itemLink {
-            color: $rojo;
-            margin-right: 25px;
-            width: 40px;
-            height: 40px;
-            display: inline-block;
-            text-align: center;
-            position: relative;
-            .itemIcon {
-              transform: scale(1);
-              font-size: 28px;
-              position: absolute;
-              left: 50%;
-              margin-left: -13px;
-              top: 50%;
-              margin-top: -22px;
-              @include transition(
-                all 0.3s 0s cubic-bezier(0.34, 1.56, 0.64, 1)
-              );
-            }
-            &:hover {
-              color: white;
-              .itemIcon {
-                transform: scale(1.2);
-                //font-size: 32px;
-                left: 50%;
-                margin-left: -13px;
-                top: 50%;
-                margin-top: -24px;
-                @include transition(
-                  all 0.2s 0s cubic-bezier(0.34, 1.56, 0.64, 1)
-                );
-                //transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-              }
-            }
-          }
-        }
       }
     }
   }
