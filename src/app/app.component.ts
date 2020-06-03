@@ -33,7 +33,20 @@ export class AppComponent {
   config: any;
   fullpage_api: any;
 
-  menuredes: boolean = false;
+  menuredes = [
+    {
+      icon: faGithub,
+      link: "#",
+      name: "Github",
+    },
+    {
+      icon: faBehance,
+      link: "#",
+      name: "BeHance",
+    },
+  ];
+
+  menuredesBar: boolean = false;
 
   constructor() {
     // for more details on config options please visit fullPage.js docs
@@ -57,8 +70,8 @@ export class AppComponent {
       onLeave: (origin, destination, direction) => {
         console.log("Estoy en: ", destination.index);
         destination.index > 0
-          ? (this.menuredes = true)
-          : (this.menuredes = false);
+          ? (this.menuredesBar = true)
+          : (this.menuredesBar = false);
       },
     };
   }

@@ -1,5 +1,7 @@
 <div
-  [className]="menuredes ? 'menuRedes menuActive' : ' menuRedes menuDesactive'"
+  [className]="
+    menuredesBar ? 'menuredesBar menuActive' : ' menuredesBar menuDesactive'
+  "
 >
   <a href="#" class="logoKike">K</a>
   <ul>
@@ -75,6 +77,11 @@
       <h1>Enrique Sanchez Q.</h1>
       <div class="title">Fullstack Developer | UX/UI | Designer</div>
       <ul class="redesBio">
+        <!-- <li class="itemRedes" *ngFor="let red of menuredes">
+          <a href="#" class="itemLink">
+            <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>
+          </a>
+        </li> -->
         <li class="itemRedes">
           <a href="#" class="itemLink">
             <fa-icon [icon]="faGithub" class="itemIcon"></fa-icon>
