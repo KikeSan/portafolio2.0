@@ -78,7 +78,7 @@ export class AppComponent {
     this.config = {
       // fullpage options
       licenseKey: "^cC$QOO^h7", //"YOUR LICENSE KEY HERE",
-      anchors: ["home", "sobremi", "habilidades", "proyectos", "insta"],
+      anchors: ["home", "sobremi", "habilidades", "proyectos", "blog"],
       menu: "#menu",
       navigation: true,
 
