@@ -36,13 +36,33 @@ export class AppComponent {
   menuredes = [
     {
       icon: faGithub,
-      link: "#",
+      link: "https://github.com/KikeSan",
       name: "Github",
     },
     {
       icon: faBehance,
       link: "#",
       name: "BeHance",
+    },
+    {
+      icon: faLinkedinIn,
+      link: "#",
+      name: "LinkedIn",
+    },
+    {
+      icon: faInstagram,
+      link: "#",
+      name: "Instagram",
+    },
+    {
+      icon: faDribbble,
+      link: "#",
+      name: "Dribbble",
+    },
+    {
+      icon: faMediumM,
+      link: "#",
+      name: "Medium",
     },
   ];
 

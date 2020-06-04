@@ -5,34 +5,9 @@
 >
   <a href="#" class="logoKike">K</a>
   <ul>
-    <li class="itemRedes">
-      <a href="#" class="itemLink">
-        <fa-icon [icon]="faGithub" class="itemIcon"></fa-icon>
-      </a>
-    </li>
-    <li class="itemRedes">
-      <a href="#" class="itemLink">
-        <fa-icon [icon]="faBehance" class="itemIcon"></fa-icon>
-      </a>
-    </li>
-    <li class="itemRedes">
-      <a href="#" class="itemLink">
-        <fa-icon [icon]="faLinkedinIn" class="itemIcon"></fa-icon>
-      </a>
-    </li>
-    <li class="itemRedes">
-      <a href="#" class="itemLink">
-        <fa-icon [icon]="faInstagram" class="itemIcon"></fa-icon>
-      </a>
-    </li>
-    <li class="itemRedes">
-      <a href="#" class="itemLink">
-        <fa-icon [icon]="faDribbble" class="itemIcon"></fa-icon>
-      </a>
-    </li>
-    <li class="itemRedes">
-      <a href="#" class="itemLink">
-        <fa-icon [icon]="faMedium" class="itemIcon"></fa-icon>
+    <li class="itemRedes" *ngFor="let red of menuredes">
+      <a [attr.href]="red.link" class="itemLink" target="_blank">
+        <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>
       </a>
     </li>
   </ul>
@@ -75,41 +50,11 @@
     <div class="baseLogo"></div>
     <div class="bio">
       <h1>Enrique Sanchez Q.</h1>
-      <div class="title">Fullstack Developer | UX/UI | Designer</div>
+      <div class="title">Senior Frontend Developer | UX/UI | Designer</div>
       <ul class="redesBio">
-        <!-- <li class="itemRedes" *ngFor="let red of menuredes">
-          <a href="#" class="itemLink">
+        <li class="itemRedes" *ngFor="let red of menuredes">
+          <a [attr.href]="red.link" class="itemLink" target="_blank">
             <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>
-          </a>
-        </li> -->
-        <li class="itemRedes">
-          <a href="#" class="itemLink">
-            <fa-icon [icon]="faGithub" class="itemIcon"></fa-icon>
-          </a>
-        </li>
-        <li class="itemRedes">
-          <a href="#" class="itemLink">
-            <fa-icon [icon]="faBehance" class="itemIcon"></fa-icon>
-          </a>
-        </li>
-        <li class="itemRedes">
-          <a href="#" class="itemLink">
-            <fa-icon [icon]="faLinkedinIn" class="itemIcon"></fa-icon>
-          </a>
-        </li>
-        <li class="itemRedes">
-          <a href="#" class="itemLink">
-            <fa-icon [icon]="faInstagram" class="itemIcon"></fa-icon>
-          </a>
-        </li>
-        <li class="itemRedes">
-          <a href="#" class="itemLink">
-            <fa-icon [icon]="faDribbble" class="itemIcon"></fa-icon>
-          </a>
-        </li>
-        <li class="itemRedes">
-          <a href="#" class="itemLink">
-            <fa-icon [icon]="faMedium" class="itemIcon"></fa-icon>
           </a>
         </li>
       </ul>
