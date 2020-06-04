@@ -153,16 +153,6 @@
         }
         &:hover {
           @extend .itemActive;
-          /* color: rgba(255, 255, 255, 1);
-          font-weight: 600;
-          p {
-            margin-top: -7px;
-            @include transition(all 0.3s 0s cubic-bezier(0.24, 1.66, 0.54, 1));
-          }
-          &:after {
-            width: 30px;
-            @include transition(all 0.2s 0s ease-in);
-          } */
         }
       }
       &.active {
