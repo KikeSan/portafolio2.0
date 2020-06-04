@@ -33,6 +33,11 @@ export class AppComponent {
   config: any;
   fullpage_api: any;
 
+  DatosPersonales = {
+    nombre: "Enrique Sanchez Q.",
+    titulo: "Senior Frontend Developer | UX/UI | Designer",
+  };
+
   menuredes = [
     {
       icon: faGithub,
@@ -73,13 +78,7 @@ export class AppComponent {
     this.config = {
       // fullpage options
       licenseKey: "^cC$QOO^h7", //"YOUR LICENSE KEY HERE",
-      anchors: [
-        "firstPage",
-        "secondPage",
-        "thirdPage",
-        "fourthPage",
-        "lastPage",
-      ],
+      anchors: ["home", "sobremi", "habilidades", "proyectos", "insta"],
       menu: "#menu",
       navigation: true,
 
