@@ -35,6 +35,11 @@
     </ul>
   </div>
 </div>
+
+<div class="version">
+  <a href="#">v2.0</a>
+</div>
+
 <div
   fullpage
   id="fullpage"
@@ -52,8 +57,8 @@
     ></particles>
     <div class="baseLogo"></div>
     <div class="bio">
-      <h1>{{DatosPersonales.nombre}}</h1>
-      <div class="title">{{DatosPersonales.titulo}}</div>
+      <h1>{{ DatosPersonales.nombre }}</h1>
+      <div class="title">{{ DatosPersonales.titulo }}</div>
       <ul class="redesBio">
         <li class="itemRedes" *ngFor="let red of menuredes">
           <a [attr.href]="red.link" class="itemLink" target="_blank">

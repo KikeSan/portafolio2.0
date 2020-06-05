@@ -3,11 +3,11 @@
 @import "./variables.scss";
 
 %bgWeb {
-  background: rgba(9, 24, 120, 1);
+  background: rgba(15, 36, 153, 1);
   background: -moz-radial-gradient(
     center,
     ellipse cover,
-    rgba(9, 24, 120, 1) 0%,
+    rgba(15, 36, 153, 1) 0%,
     rgba(2, 12, 63, 1) 100%
   );
   background: -webkit-gradient(
@@ -16,33 +16,33 @@
     0px,
     center center,
     100%,
-    color-stop(0%, rgba(9, 24, 120, 1)),
+    color-stop(0%, rgba(15, 36, 153, 1)),
     color-stop(100%, rgba(2, 12, 63, 1))
   );
   background: -webkit-radial-gradient(
     center,
     ellipse cover,
-    rgba(9, 24, 120, 1) 0%,
+    rgba(15, 36, 153, 1) 0%,
     rgba(2, 12, 63, 1) 100%
   );
   background: -o-radial-gradient(
     center,
     ellipse cover,
-    rgba(9, 24, 120, 1) 0%,
+    rgba(15, 36, 153, 1) 0%,
     rgba(2, 12, 63, 1) 100%
   );
   background: -ms-radial-gradient(
     center,
     ellipse cover,
-    rgba(9, 24, 120, 1) 0%,
+    rgba(15, 36, 153, 1) 0%,
     rgba(2, 12, 63, 1) 100%
   );
   background: radial-gradient(
     ellipse at center,
-    rgba(9, 24, 120, 1) 0%,
+    rgba(15, 36, 153, 1) 0%,
     rgba(2, 12, 63, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#091878', endColorstr='#020c3f', GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0f2499', endColorstr='#020c3f', GradientType=1 );
 }
 body {
   @extend %bgWeb;
@@ -50,13 +50,13 @@ body {
   color: white !important;
   &::after {
     content: "";
-    background-image: url(./assets/noise.png?background=#09187800&noise=1b51a1&density=54&opacity=75);
+    background-image: url(./assets/noise-dark.png?background=#09187800&noise=1b51a1&density=54&opacity=75);
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 0;
     top: 0;
-    opacity: 0.2;
+    opacity: 0.3;
   }
 
   #fp-nav {
