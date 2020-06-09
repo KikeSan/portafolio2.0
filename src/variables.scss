@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;500;600&family=Yanone+Kaffeesatz:wght@300;400;500&family=Raleway:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;500;600&family=Yanone+Kaffeesatz:wght@300;400;500&family=Raleway:wght@300;400;600&display=swap");
 
 $vollkorn: "Vollkorn", serif;
 $yanone: "Yanone Kaffeesatz", sans-serif;
@@ -7,6 +7,9 @@ $raleway: "Raleway", sans-serif;
 $azul: #0c1239;
 $rojo: #ff214f;
 $celeste: #5087f9;
+
+$yellow: #ffb20c;
+$green: #06d933;
 
 @mixin breakpoint($break) {
   @if $break == L {

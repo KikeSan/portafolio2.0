@@ -285,6 +285,7 @@ li.itemRedes {
         font-family: $yanone;
         font-size: 26px;
         font-weight: 300;
+        letter-spacing: 1px;
         text-transform: uppercase;
         color: $celeste;
       }
@@ -298,6 +299,36 @@ li.itemRedes {
         list-style: none;
         padding: 0;
         margin-top: 60px;
+      }
+    }
+  }
+
+  .skills {
+    padding-left: 225px;
+    h1 {
+      text-transform: uppercase;
+      font-family: $raleway;
+      font-weight: 600;
+      .devColor {
+        font-weight: 300;
+        &--yellow {
+          color: $yellow;
+        }
+        &--green {
+          color: $green;
+        }
+        &--lightblue {
+          color: $celeste;
+        }
+      }
+    }
+
+    .holder {
+      margin: 0;
+      .itemSkill {
+        img {
+          width: 50px;
+        }
       }
     }
   }
