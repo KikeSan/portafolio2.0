@@ -329,9 +329,20 @@ li.itemRedes {
       .itemSkill {
         display: flex;
         margin-right: 30px;
+        height: 58px;
+        margin-bottom: 30px;
         .icono {
           img {
             width: 50px;
+            @include transition(all 0.4s 0s cubic-bezier(0.34, 1.56, 0.64, 1));
+            &:hover {
+              width: 64px;
+              margin-top: -8px;
+              margin-left: -8px;
+              @include transition(
+                all 0.2s 0s cubic-bezier(0.34, 1.56, 0.64, 1)
+              );
+            }
           }
         }
         .info {
@@ -377,6 +388,43 @@ li.itemRedes {
       }
     }
   }
+  .dojo {
+    position: absolute;
+    right: 80px;
+    bottom: 60px;
+    .dojoTitle {
+      width: 160px;
+      margin-top: 20px;
+    }
+    .dojoTraining__title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      position: absolute;
+      text-align: right;
+      right: 205px;
+      bottom: -24px;
+      &:before {
+        content: "";
+        width: 50px;
+        height: 1px;
+        background: #fff;
+        display: block;
+        bottom: 9px;
+        position: absolute;
+        left: -57px;
+      }
+    }
+    .dojoIcon {
+      width: 200px;
+    }
+    .dojoTraining {
+      position: absolute;
+      bottom: -7px;
+      width: 70px;
+      margin-left: -3px;
+    }
+  }
 }
 
 .version {
@@ -386,9 +434,22 @@ li.itemRedes {
   z-index: 9;
   a {
     color: rgba(255, 255, 255, 0.5);
+    &:before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.5);
+      display: block;
+      bottom: 9px;
+      position: absolute;
+      left: -40px;
+    }
     &:hover {
       color: rgba(255, 255, 255, 1);
       text-decoration: none;
+      &:before {
+        background: rgba(255, 255, 255, 1);
+      }
     }
   }
 }
