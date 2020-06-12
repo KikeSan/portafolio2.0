@@ -8,6 +8,7 @@ import { AngularFullpageModule } from "@fullpage/angular-fullpage";
 import { ParticlesModule } from "angular-particle";
 
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     AngularFullpageModule,
     ParticlesModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

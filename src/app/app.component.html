@@ -48,7 +48,7 @@
   #fullpageRef
 >
   <!-- <div> -->
-  <div class="section home">
+  <div class="section sectionHome">
     <particles
       [style]="myStyle"
       [width]="width"
@@ -68,10 +68,10 @@
       </ul>
     </div>
   </div>
-  <div class="section" (click)="fullpage_api.moveSectionDown()">
+  <div class="section sectionSobremi" (click)="fullpage_api.moveSectionDown()">
     Some sobremi
   </div>
-  <div class="section">
+  <div class="section sectionSkills">
     <div class="container-fluid skills">
       <h1>Frontend <span class="devColor devColor--yellow">Dev</span></h1>
       <div class="row holder">
@@ -184,10 +184,53 @@
       <img src="../assets/dojoIcon.png" alt="" class="dojoIcon" />
     </div>
   </div>
-  <div class="section" (click)="fullpage_api.moveTo('secondPage', 2)">
+  <div
+    class="section sectionProyectos"
+    (click)="fullpage_api.moveTo('secondPage', 2)"
+  >
     Some Proyectos
   </div>
-  <div class="section">
-    Some Insta
+  <div class="section sectionBlog">
+    <div class="container medium">
+      <div class="row">
+        <div class="col-3 info">
+          <h1>Medium</h1>
+          <div class="descPost">
+            <p class="descPost__title">{{ postMediumText }}</p>
+            <a
+              href="{{ postMediumLink }}"
+              target="_blank"
+              class="descPost__link"
+              >Ver perfil</a
+            >
+            <img src="{{ postMediumImage }}" alt="" class="descPost__image" />
+          </div>
+          <p class="textPost">
+            Cada vez que veo algo que me sirvió en un desarrollo trato de
+            compartirlo. Date una vuelta por mi perfil si lo tuyo es la lectura
+            y la programación. <br /><br />
+            Enjoy code!
+          </p>
+        </div>
+        <div class="col-9 posts">
+          <div class="container">
+            <div class="row">
+              <div class="col-4" *ngFor="let post of postsMedium">
+                <a [attr.href]="post.link" target="_blank" class="itemPost">
+                  <img [src]="post.thumbnail" alt="" />
+                  <div class="infoPost">
+                    <p>
+                      <fa-icon [icon]="faCalendarAlt" class="itemIcon"></fa-icon
+                      >{{ changeFormatDate(post.pubDate.split(" ")[0]) }}
+                    </p>
+                    <h2>{{ post.title }}</h2>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

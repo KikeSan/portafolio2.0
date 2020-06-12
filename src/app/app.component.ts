@@ -8,6 +8,11 @@ import {
   faInstagram,
   faMediumM,
 } from "@fortawesome/free-brands-svg-icons";
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { PostMediumService } from "./services/post-medium.service";
+//const moment = require("moment");
+//import moment from "moment";
+import * as moment from "moment";
 
 @Component({
   selector: "app-root",
@@ -22,6 +27,7 @@ export class AppComponent {
   faInstagram = faInstagram;
   faDribbble = faDribbble;
   faMedium = faMediumM;
+  faCalendarAlt = faCalendarAlt;
 
   title = "webpage";
 
@@ -73,7 +79,12 @@ export class AppComponent {
 
   menuredesBar: boolean = false;
 
-  constructor() {
+  postMediumText = "";
+  postMediumLink = "";
+  postMediumImage = "";
+  postsMedium;
+
+  constructor(private postMedium: PostMediumService) {
     // for more details on config options please visit fullPage.js docs
     this.config = {
       // fullpage options
@@ -91,12 +102,32 @@ export class AppComponent {
         destination.index > 0
           ? (this.menuredesBar = true)
           : (this.menuredesBar = false);
+
+        if (destination.index == 4) this.renderPostMedium();
       },
     };
   }
 
   getRef(fullPageRef) {
     this.fullpage_api = fullPageRef;
+  }
+
+  renderPostMedium() {
+    const data = this.postMedium.getData().subscribe((res) => {
+      console.log(res);
+      this.postMediumText = res["feed"]["title"];
+      this.postMediumLink = res["feed"]["link"];
+      this.postMediumImage = res["feed"]["image"];
+
+      this.postsMedium = res["items"].filter((item) => {
+        return item["categories"].length > 0;
+      });
+    });
+  }
+
+  changeFormatDate(fecha) {
+    moment.locale("es");
+    return moment(fecha).format("LL");
   }
 
   ngOnInit() {
