@@ -508,6 +508,13 @@ li.itemRedes {
               text-decoration: none;
             }
           }
+
+          &:hover {
+            p,
+            h2 {
+              text-decoration: none !important;
+            }
+          }
         }
       }
     }

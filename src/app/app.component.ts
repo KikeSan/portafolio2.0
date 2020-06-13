@@ -13,6 +13,7 @@ import { PostMediumService } from "./services/post-medium.service";
 //const moment = require("moment");
 //import moment from "moment";
 import * as moment from "moment";
+import { ServNodeService } from "./services/serv-node.service";
 
 @Component({
   selector: "app-root",
@@ -40,8 +41,8 @@ export class AppComponent {
   fullpage_api: any;
 
   DatosPersonales = {
-    nombre: "Enrique Sanchez Q.",
-    titulo: "Senior Frontend Developer | UX/UI | Designer",
+    nombre: "_", //"Enrique Sanchez Q.",
+    titulo: "_", //"Senior Frontend Developer | UX/UI | Designer",
   };
 
   menuredes = [
@@ -84,7 +85,10 @@ export class AppComponent {
   postMediumImage = "";
   postsMedium;
 
-  constructor(private postMedium: PostMediumService) {
+  constructor(
+    private postMedium: PostMediumService,
+    private servNode: ServNodeService
+  ) {
     // for more details on config options please visit fullPage.js docs
     this.config = {
       // fullpage options
@@ -125,12 +129,22 @@ export class AppComponent {
     });
   }
 
+  renderInfoPersonal() {
+    const data = this.servNode.getInfoPersonal().subscribe((info) => {
+      console.log("Información personal", info["result"][0]);
+      this.DatosPersonales.nombre = info["result"][0].nombreCompleto;
+      this.DatosPersonales.titulo = info["result"][0].titulo;
+    });
+  }
+
   changeFormatDate(fecha) {
     moment.locale("es");
     return moment(fecha).format("LL");
   }
 
   ngOnInit() {
+    this.renderInfoPersonal();
+
     this.myStyle = {
       position: "fixed",
       width: "100%",
