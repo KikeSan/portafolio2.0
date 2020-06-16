@@ -1,31 +1,13 @@
-/* import { Injectable } from "@angular/core";
-import gql from "graphql-tag";
-import { Apollo } from "apollo-angular";
-
-const GET_GH = gql`
-  {
-    viewer {
-      contributionsCollection {
-        contributionCalendar {
-          totalContributions
-          weeks {
-            firstDay
-
-            contributionDays {
-              weekday
-              contributionCount
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",
 })
 export class GithubApiService {
-  constructor(private apollo: Apollo) {}
+  constructor(private http: HttpClient) {}
+
+  getData() {
+    return this.http.get("http://localhost:3001/github");
+  }
 }
- */

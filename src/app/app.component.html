@@ -191,42 +191,92 @@
     Some Proyectos
   </div>
   <div class="section sectionBlog">
-    <div class="container medium">
-      <div class="row">
-        <div class="col-3 info">
-          <h1>Medium</h1>
-          <div class="descPost">
-            <p class="descPost__title">{{ postMediumText }}</p>
-            <a
-              href="{{ postMediumLink }}"
-              target="_blank"
-              class="descPost__link"
-              >Ver perfil</a
-            >
-            <img src="{{ postMediumImage }}" alt="" class="descPost__image" />
+    <div class="slide" data-anchor="slide1">
+      <div class="container medium">
+        <div class="row">
+          <div class="col-3 info">
+            <h1>Medium</h1>
+            <div class="descPost">
+              <p class="descPost__title">{{ postMediumText }}</p>
+              <a
+                href="{{ postMediumLink }}"
+                target="_blank"
+                class="descPost__link"
+                >Ver perfil</a
+              >
+              <img src="{{ postMediumImage }}" alt="" class="descPost__image" />
+            </div>
+            <p class="textPost">
+              Cada vez que veo algo que me sirvió en un desarrollo trato de
+              compartirlo. Date una vuelta por mi perfil si lo tuyo es la
+              lectura y la programación. <br /><br />
+              Enjoy code!
+            </p>
           </div>
-          <p class="textPost">
-            Cada vez que veo algo que me sirvió en un desarrollo trato de
-            compartirlo. Date una vuelta por mi perfil si lo tuyo es la lectura
-            y la programación. <br /><br />
-            Enjoy code!
-          </p>
-        </div>
-        <div class="col-9 posts">
-          <div class="container">
-            <div class="row">
-              <div class="col-4" *ngFor="let post of postsMedium">
-                <a [attr.href]="post.link" target="_blank" class="itemPost">
-                  <img [src]="post.thumbnail" alt="" />
-                  <div class="infoPost">
-                    <p>
-                      <fa-icon [icon]="faCalendarAlt" class="itemIcon"></fa-icon
-                      >{{ changeFormatDate(post.pubDate.split(" ")[0]) }}
-                    </p>
-                    <h2>{{ post.title }}</h2>
-                  </div>
-                </a>
+          <div class="col-9 posts">
+            <div class="container">
+              <div class="row">
+                <div class="col-4" *ngFor="let post of postsMedium">
+                  <a [attr.href]="post.link" target="_blank" class="itemPost">
+                    <img [src]="post.thumbnail" alt="" />
+                    <div class="infoPost">
+                      <p>
+                        <fa-icon
+                          [icon]="faCalendarAlt"
+                          class="itemIcon"
+                        ></fa-icon
+                        >{{ changeFormatDate(post.pubDate.split(" ")[0]) }}
+                      </p>
+                      <h2>{{ post.title }}</h2>
+                    </div>
+                  </a>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide" data-anchor="slide2">
+      <div class="container github">
+        <div class="row">
+          <div class="col-3 info">
+            <h1>Github</h1>
+            <div class="descPost">
+              <img
+                [src]="dataGithub['avatarUrl']"
+                alt=""
+                class="descPost__image"
+              />
+              <div class="infoTitle">
+                <img
+                  class="emoji"
+                  title=":octocat:"
+                  alt=":octocat:"
+                  src="https://github.githubassets.com/images/icons/emoji/octocat.png"
+                  height="20"
+                  width="20"
+                  align="absmiddle"
+                />
+                <p class="descPost__title">{{ dataGithub["bio"] }}</p>
+              </div>
+              <a
+                href="{{ postMediumLink }}"
+                target="_blank"
+                class="descPost__link"
+                >Ver perfil</a
+              >
+            </div>
+            <p class="textPost">
+              Cada vez que veo algo que me sirvió en un desarrollo trato de
+              compartirlo. Date una vuelta por mi perfil si lo tuyo es la
+              lectura y la programación. <br /><br />
+              Enjoy code!
+            </p>
+          </div>
+          <div class="col-9 posts">
+            <div class="container">
+              <div class="row"></div>
             </div>
           </div>
         </div>

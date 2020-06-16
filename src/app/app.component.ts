@@ -14,6 +14,7 @@ import { PostMediumService } from "./services/post-medium.service";
 //import moment from "moment";
 import * as moment from "moment";
 import { ServNodeService } from "./services/serv-node.service";
+import { GithubApiService } from "./services/github-api.service";
 
 @Component({
   selector: "app-root",
@@ -85,9 +86,12 @@ export class AppComponent {
   postMediumImage = "";
   postsMedium;
 
+  dataGithub;
+
   constructor(
     private postMedium: PostMediumService,
-    private servNode: ServNodeService
+    private servNode: ServNodeService,
+    private ghService: GithubApiService
   ) {
     // for more details on config options please visit fullPage.js docs
     this.config = {
@@ -107,7 +111,9 @@ export class AppComponent {
           ? (this.menuredesBar = true)
           : (this.menuredesBar = false);
 
-        if (destination.index == 4) this.renderPostMedium();
+        if (destination.index == 4) {
+          this.renderPostMedium();
+        }
       },
     };
   }
@@ -129,6 +135,13 @@ export class AppComponent {
     });
   }
 
+  renderGithubData() {
+    this.ghService.getData().subscribe((res) => {
+      console.log(JSON.parse(res["body"]).data.viewer);
+      this.dataGithub = JSON.parse(res["body"]).data.viewer;
+    });
+  }
+
   renderInfoPersonal() {
     const data = this.servNode.getInfoPersonal().subscribe((info) => {
       console.log("Información personal", info["result"][0]);
@@ -144,6 +157,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.renderInfoPersonal();
+    this.renderGithubData();
 
     this.myStyle = {
       position: "fixed",
