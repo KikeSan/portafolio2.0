@@ -525,10 +525,10 @@ li.itemRedes {
           margin-bottom: 30px;
           &__title {
             font-size: 15px;
-            font-family: $yanone;
+            font-family: $raleway;
             color: $celesteTexto;
             //width: 150px;
-            margin-bottom: 5px;
+            margin-top: 10px;
           }
           &__link {
             display: inline-block;
@@ -541,13 +541,61 @@ li.itemRedes {
             text-transform: uppercase;
             font-size: 11px;
             font-weight: 600;
+            &:hover {
+              text-decoration: none;
+            }
           }
           &__image {
-            width: 70px;
-            border-radius: 10px;
+            width: 130px;
+            border-radius: 50%;
             position: relative;
             top: 4px;
-            left: 10px;
+            left: 0px;
+          }
+          .holderEmoji {
+            background-color: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 2em;
+            position: absolute;
+            left: 98px;
+            top: 90px;
+            padding: 5px;
+          }
+          .name {
+            font-size: 20px;
+            margin-bottom: 0px;
+            margin-top: 15px;
+          }
+          .username {
+            font-size: 16px;
+            color: $celesteTexto;
+          }
+        }
+        .textPost {
+          font-family: $raleway;
+          font-size: 12px;
+          margin-bottom: 12px;
+          .octicon {
+            fill: white;
+            margin-right: 10px !important;
+            width: 16px;
+          }
+          a {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .contributions {
+        .holderCommits {
+          .columnaCommits {
+            display: inline-block;
+            .commit {
+              display: block;
+              width: 10px;
+              height: 10px;
+              background: $celeste;
+            }
           }
         }
       }

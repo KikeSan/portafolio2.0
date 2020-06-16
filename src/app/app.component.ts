@@ -86,7 +86,8 @@ export class AppComponent {
   postMediumImage = "";
   postsMedium;
 
-  dataGithub;
+  dataGithub = {};
+  developMember = "Developer Program Member";
 
   constructor(
     private postMedium: PostMediumService,
@@ -137,8 +138,8 @@ export class AppComponent {
 
   renderGithubData() {
     this.ghService.getData().subscribe((res) => {
-      console.log(JSON.parse(res["body"]).data.viewer);
-      this.dataGithub = JSON.parse(res["body"]).data.viewer;
+      console.log(res["body"]);
+      this.dataGithub = res["body"];
     });
   }
 
