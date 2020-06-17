@@ -8,6 +8,7 @@ export class GithubApiService {
   constructor(private http: HttpClient) {}
 
   getData() {
-    return this.http.get("http://localhost:3001/github");
+    return this.http.get("https://serviceskikepe.herokuapp.com/github");
+    //return this.http.get("http://localhost:3001/github");
   }
 }
