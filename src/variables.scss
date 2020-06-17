@@ -12,6 +12,12 @@ $celesteTexto: #98b7f7;
 $yellow: #ffb20c;
 $green: #06d933;
 
+/*------------ GITHUB COMMITS -----------*/
+$light: #75b2fd; //#75b2fd #1190fd #0454cc #0119ab
+$normal: #1190fd;
+$dark: #0454cc;
+$darker: #0119ab;
+
 @mixin breakpoint($break) {
   @if $break == L {
     @media (max-width: 1420px) {

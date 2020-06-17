@@ -589,7 +589,7 @@ li.itemRedes {
       .contributions {
         .row {
           max-width: 860px;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
         .holderCommits {
           display: flex;
@@ -618,9 +618,120 @@ li.itemRedes {
               height: 12px;
               background: rgba(255, 255, 255, 0.2);
               margin: 2px;
-              &.darker {
-                background: $rojo;
+              /*  &.white {
+								background: rgba(255, 255, 255, 0.2);
+              } */
+              &.light {
+                cursor: pointer;
+                background: $light;
               }
+              &.normal {
+                cursor: pointer;
+                background: $normal;
+              }
+              &.dark {
+                cursor: pointer;
+                background: $dark;
+              }
+              &.darker {
+                cursor: pointer;
+                background: $darker;
+              }
+              .ttip {
+                opacity: 0;
+                position: absolute;
+                font-size: 11px;
+                width: fit-content;
+                background: $rojo;
+                padding: 6px 8px;
+                margin-top: -40px;
+                pointer-events: none;
+                border-radius: 3px;
+                text-align: left;
+                margin-left: -3px;
+                line-height: 12px;
+                @include transition(all 0.3s 0s ease-out);
+              }
+              &:hover {
+                .ttip {
+                  opacity: 1;
+                  @include transition(all 0.5s 0s ease-out);
+                }
+              }
+            }
+          }
+        }
+        .titlePinnedRepos {
+          margin: 30px 0 0;
+        }
+        .pinnedRepo {
+          .linkPin {
+            display: block;
+            margin: 20px 0 30px;
+            color: rgba(255, 255, 255, 0.7);
+            @include transition(all 0.3s 0s ease-out);
+            &:before {
+              content: "";
+              background: rgba($azul, 0);
+              width: 100%;
+              height: 100%;
+              display: block;
+              position: absolute;
+              left: 0px;
+              top: 0;
+              z-index: -1;
+              border-radius: 8px;
+              transform: scale(0.8);
+              @include transition(
+                all 0.3s 0s cubic-bezier(0.34, 1.56, 0.64, 1)
+              );
+            }
+            &:hover {
+              text-decoration: none;
+              color: rgba(255, 255, 255, 1);
+              @include transition(all 0.3s 0s ease-out);
+              h3 {
+                color: $yellow;
+              }
+              &:before {
+                background: rgba($azul, 0.5);
+                transform: scale(1);
+                @include transition(
+                  all 0.2s 0s cubic-bezier(0.34, 1.56, 0.64, 1)
+                );
+              }
+            }
+          }
+          h3 {
+            font-size: 18px;
+            font-family: $raleway;
+            font-weight: 500;
+            svg {
+              fill: white;
+            }
+            &:after {
+              content: "";
+              width: 100%;
+              border-top: 1px solid white;
+              display: block;
+              margin: 7px 0;
+            }
+          }
+          .description {
+            font-size: 12px;
+            height: 54px;
+          }
+          .language {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            position: relative;
+            padding-left: 20px;
+            svg {
+              width: 14px;
+              position: absolute;
+              top: 2px;
+              left: 0;
             }
           }
         }

@@ -323,16 +323,16 @@
           </div>
           <div class="col-9 contributions">
             <div class="container">
-              <div class="row justify-content-between">
+              <div class="row justify-content-between" *ngIf="dataGithub">
                 <div class="title__commits">
                   {{
-                    dataGithub.contributionsCollection.contributionCalendar
+                    dataGithub.contributionsCollection?.contributionCalendar
                       .totalContributions
                   }}
                   contribuciones en el último año
                 </div>
                 <div class="title__repos">
-                  {{ dataGithub.repositories.totalCount }} repositorios
+                  {{ dataGithub.repositories?.totalCount }} repositorios
                 </div>
               </div>
               <div class="row">
@@ -341,29 +341,39 @@
                     <div
                       class="columnaCommits"
                       *ngFor="
-                        let week of dataGithub.contributionsCollection
-                          .contributionCalendar.weeks
+                        let week of dataGithub.contributionsCollection?.contributionCalendar.weeks
                       "
                     >
                       <!-- {{week.firstDay}} -->
                       <div
                         *ngFor="let commit of week.contributionDays"
-                        [className]="
-                          commit.contributionCount > 0
-                            ? 'commit light'
-                            : commit.contributionCount > 4
-                            ? 'commit normal'
-                            : commit.contributionCount > 8
-                            ? 'commit dark'
-                            : 'commit darker'
-                        "
-                      >
+                        [className]="getColorCalendarGithub(commit.contributionCount)"
+												id="{{commit.contributionCount}}"
+											>
+											<div class="ttip" *ngIf="commit.contributionCount>0" ><b>{{commit.contributionCount}} Commits</b> <br/>{{changeFormatDate(commit.date)}}</div>
                         <!-- {{commit.contributionCount}} -->
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+							</div>
+							<div class="row">
+								<p class="titlePinnedRepos">Repositorios públicos destacados</p>
+							</div>
+							<div class="row">
+								<div class="col-4 pinnedRepo" *ngFor="let pin of dataGithub.pinnedItems?.nodes">
+									<a [attr.href]="pin.url" target="_blank" class="linkPin">
+										<h3>
+											<svg class="octicon octicon-repo mr-1 text-gray flex-shrink-0" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+											{{pin.name}}</h3>
+										<p class="description">{{pin.description}}</p>
+										<p class="language" *ngIf="pin.primaryLanguage?.name">
+											<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.96 60" [attr.fill]="pin.primaryLanguage?.color" ><g id="soical"><g id="social"><g id="hexagon-black"><polygon id="Polygon-64" points="25.98 0 51.96 15 51.96 45 25.98 60 0 45 0 15 25.98 0" style="fill-rule:evenodd"/></g></g></g></svg>
+											{{pin.primaryLanguage?.name}}
+										</p>
+									</a>
+								</div>
+							</div>
             </div>
           </div>
         </div>

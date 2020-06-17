@@ -86,7 +86,7 @@ export class AppComponent {
   postMediumImage = "";
   postsMedium;
 
-  dataGithub = {};
+  dataGithub: any = {};
   developMember = "Developer Program Member";
 
   constructor(
@@ -137,8 +137,10 @@ export class AppComponent {
   }
 
   renderGithubData() {
+    console.log("RENDER INIT");
+
     this.ghService.getData().subscribe((res) => {
-      console.log(res["body"]);
+      console.log("RES", res["body"]);
       this.dataGithub = res["body"];
     });
   }
@@ -156,8 +158,26 @@ export class AppComponent {
     return moment(fecha).format("LL");
   }
 
+  getColorCalendarGithub(count) {
+    let clase;
+
+    count > 12
+      ? (clase = "commit darker")
+      : count > 7
+      ? (clase = "commit dark")
+      : count > 4
+      ? (clase = "commit normal")
+      : count > 0
+      ? (clase = "commit light")
+      : (clase = "commit white");
+
+    return clase;
+  }
+
   ngOnInit() {
     this.renderInfoPersonal();
+    console.log("LOAD INIT");
+
     this.renderGithubData();
 
     this.myStyle = {
