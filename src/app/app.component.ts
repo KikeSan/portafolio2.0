@@ -162,13 +162,13 @@ export class AppComponent {
     let clase;
 
     count > 12
-      ? (clase = "commit darker")
+      ? (clase = "commit fill darker")
       : count > 7
-      ? (clase = "commit dark")
+      ? (clase = "commit fill dark")
       : count > 4
-      ? (clase = "commit normal")
+      ? (clase = "commit fill normal")
       : count > 0
-      ? (clase = "commit light")
+      ? (clase = "commit fill light")
       : (clase = "commit white");
 
     return clase;

@@ -618,24 +618,25 @@ li.itemRedes {
               height: 12px;
               background: rgba(255, 255, 255, 0.2);
               margin: 2px;
+              border: 2px solid transparent;
+              @include transition(all 0.3s 0s ease-out);
               /*  &.white {
 								background: rgba(255, 255, 255, 0.2);
               } */
               &.light {
-                cursor: pointer;
                 background: $light;
               }
               &.normal {
-                cursor: pointer;
                 background: $normal;
               }
               &.dark {
-                cursor: pointer;
                 background: $dark;
               }
               &.darker {
-                cursor: pointer;
                 background: $darker;
+              }
+              &.fill {
+                cursor: pointer;
               }
               .ttip {
                 opacity: 0;
@@ -653,6 +654,9 @@ li.itemRedes {
                 @include transition(all 0.3s 0s ease-out);
               }
               &:hover {
+                &.fill {
+                  border: 2px solid white;
+                }
                 .ttip {
                   opacity: 1;
                   @include transition(all 0.5s 0s ease-out);
