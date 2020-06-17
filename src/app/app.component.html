@@ -328,7 +328,8 @@
                   {{
                     dataGithub.contributionsCollection.contributionCalendar
                       .totalContributions
-                  }}contribuciones en el último año
+                  }}
+                  contribuciones en el último año
                 </div>
                 <div class="title__repos">
                   {{ dataGithub.repositories.totalCount }} repositorios
@@ -346,8 +347,16 @@
                     >
                       <!-- {{week.firstDay}} -->
                       <div
-                        class="commit"
                         *ngFor="let commit of week.contributionDays"
+                        [className]="
+                          commit.contributionCount > 0
+                            ? 'commit light'
+                            : commit.contributionCount > 4
+                            ? 'commit normal'
+                            : commit.contributionCount > 8
+                            ? 'commit dark'
+                            : 'commit darker'
+                        "
                       >
                         <!-- {{commit.contributionCount}} -->
                       </div>
