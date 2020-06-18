@@ -770,3 +770,19 @@ li.itemRedes {
     }
   }
 }
+
+.dialogTech {
+  background: rgba(3, 6, 23, 0.8);
+  position: absolute;
+  top: 0;
+  display: block;
+  z-index: 999;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.filterApply{
+	filter: blur(5);
+	@include transition(all .3s 0s ease-out);
+}

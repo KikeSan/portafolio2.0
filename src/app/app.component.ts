@@ -32,6 +32,7 @@ export class AppComponent {
   faCalendarAlt = faCalendarAlt;
 
   title = "webpage";
+  dialogTechActive = false;
 
   myStyle: object = {};
   myParams: object = {};

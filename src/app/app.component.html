@@ -45,7 +45,7 @@
   id="fullpage"
   [options]="config"
   (ref)="getRef($event)"
-  #fullpageRef
+	#fullpageRef
 >
   <!-- <div> -->
   <div class="section sectionHome">
@@ -380,4 +380,10 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="dialogTech" *ngIf="dialogTechActive">
+	<div class="dialogTech__content">
+		Hola
+	</div>
 </div>
