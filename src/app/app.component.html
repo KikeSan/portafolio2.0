@@ -32,7 +32,14 @@
       <li data-menuanchor="blog" class="nav-item">
         <a href="#blog" class="nav-link"><p>Blog</p></a>
       </li>
-    </ul>
+		</ul>
+		<div class="likeCount">
+			<div class="count">45</div>
+			<div class="like" [ngClass]="{
+				is_animating: animalike,
+				not_animating: !animalike
+			}" (click)="likedPage()"></div>
+		</div>
   </div>
 </div>
 
@@ -48,7 +55,8 @@
 	#fullpageRef
 	[className]="
 	dialogTechActive ? 'filterApplyOn' : 'filterApplyOff'
-      "
+			"
+			*ngIf="!isloadingPage"
 >
   <!-- <div> -->
   <div class="section sectionHome">
@@ -388,6 +396,7 @@
 <div class="dialogTech" *ngIf="dialogTechActive">
 	<div class="dialogTech__content ">
 			<div class="dialogTech__title">
+				<fa-icon [icon]="faCogs" class="closeIcon mr-2"></fa-icon>
 				Tecnología web
 			</div>
 			<p class="dialogTech__parrafo">Para el desarrollo de esta página web se utilizaron las siguientes tecnologías.</p>
@@ -407,7 +416,12 @@
 			<img src="../assets/logosTech/express.png" alt="" class="dialogTech__image">
 			<img src="../assets/logosTech/typescript.png" alt="" class="dialogTech__image">
 			<img src="../assets/logosTech/heroku.png" alt="" class="dialogTech__image">
-			<img src="../assets/logosTech/graphql.png" alt="" class="dialogTech__image">
 			<img src="../assets/logosTech/graphql2.png" alt="" class="dialogTech__image">
+
+			<a (click)="closeDialog()" class="dialogTech__close">
+				<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.96 60"><g id="soical"><g id="social"><g id="hexagon-black"><polygon id="Polygon-64" points="25.98 0 51.96 15 51.96 45 25.98 60 0 45 0 15 25.98 0" style="fill-rule:evenodd"/></g></g></g></svg>
+				<fa-icon [icon]="faTimes" class="closeIcon"></fa-icon>
+			</a>
 		</div>
+		
 </div>

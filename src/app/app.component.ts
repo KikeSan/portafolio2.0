@@ -8,7 +8,11 @@ import {
   faInstagram,
   faMediumM,
 } from "@fortawesome/free-brands-svg-icons";
-import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarAlt,
+  faTimes,
+  faCogs,
+} from "@fortawesome/free-solid-svg-icons";
 import { PostMediumService } from "./services/post-medium.service";
 //const moment = require("moment");
 //import moment from "moment";
@@ -30,9 +34,11 @@ export class AppComponent {
   faDribbble = faDribbble;
   faMedium = faMediumM;
   faCalendarAlt = faCalendarAlt;
+  faTimes = faTimes;
+  faCogs = faCogs;
 
   title = "webpage";
-  dialogTechActive = false;
+  dialogTechActive = true;
 
   myStyle: object = {};
   myParams: object = {};
@@ -41,6 +47,9 @@ export class AppComponent {
 
   config: any;
   fullpage_api: any;
+
+  isloadingPage: boolean = true;
+  animalike: boolean = false;
 
   DatosPersonales = {
     nombre: "_", //"Enrique Sanchez Q.",
@@ -127,6 +136,16 @@ export class AppComponent {
   openDialog() {
     this.dialogTechActive = true;
   }
+  closeDialog() {
+    this.dialogTechActive = false;
+  }
+
+  likedPage() {
+    this.animalike = true;
+    setTimeout(() => {
+      this.animalike = false;
+    }, 1500);
+  }
 
   renderPostMedium() {
     const data = this.postMedium.getData().subscribe((res) => {
@@ -155,6 +174,8 @@ export class AppComponent {
       console.log("Información personal", info["result"][0]);
       this.DatosPersonales.nombre = info["result"][0].nombreCompleto;
       this.DatosPersonales.titulo = info["result"][0].titulo;
+
+      this.isloadingPage = false;
     });
   }
 
