@@ -124,6 +124,10 @@ export class AppComponent {
     this.fullpage_api = fullPageRef;
   }
 
+  openDialog() {
+    this.dialogTechActive = true;
+  }
+
   renderPostMedium() {
     const data = this.postMedium.getData().subscribe((res) => {
       console.log(res);

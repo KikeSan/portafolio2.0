@@ -37,7 +37,7 @@
 </div>
 
 <div class="version">
-  <a href="#">v2.0</a>
+  <a href="#" (click)="openDialog()">v2.0</a>
 </div>
 
 <div
@@ -46,6 +46,9 @@
   [options]="config"
   (ref)="getRef($event)"
 	#fullpageRef
+	[className]="
+	dialogTechActive ? 'filterApplyOn' : 'filterApplyOff'
+      "
 >
   <!-- <div> -->
   <div class="section sectionHome">
@@ -350,7 +353,7 @@
                         [className]="getColorCalendarGithub(commit.contributionCount)"
 												id="{{commit.contributionCount}}"
 											>
-											<div class="ttip" *ngIf="commit.contributionCount>0" ><b>{{commit.contributionCount}} Commits</b> <br/>{{changeFormatDate(commit.date)}}</div>
+											<div class="ttip" *ngIf="commit.contributionCount>0" ><b>{{commit.contributionCount}} Contribuciones</b> <br/>{{changeFormatDate(commit.date)}}</div>
                         <!-- {{commit.contributionCount}} -->
                       </div>
                     </div>
@@ -383,7 +386,28 @@
 </div>
 
 <div class="dialogTech" *ngIf="dialogTechActive">
-	<div class="dialogTech__content">
-		Hola
-	</div>
+	<div class="dialogTech__content ">
+			<div class="dialogTech__title">
+				Tecnología web
+			</div>
+			<p class="dialogTech__parrafo">Para el desarrollo de esta página web se utilizaron las siguientes tecnologías.</p>
+			<h4>Frontend</h4>
+			<img src="../assets/logosTech/angular.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/bootstrap.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/rxjs.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/fontawesome.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/sass.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/typescript.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/analitycs.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/momentjs.png" alt="" class="dialogTech__image">
+
+			<h4>Backtend</h4>
+			<img src="../assets/logosTech/node.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/mongo.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/express.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/typescript.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/heroku.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/graphql.png" alt="" class="dialogTech__image">
+			<img src="../assets/logosTech/graphql2.png" alt="" class="dialogTech__image">
+		</div>
 </div>
