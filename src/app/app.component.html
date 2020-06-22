@@ -34,11 +34,11 @@
       </li>
 		</ul>
 		<div class="likeCount">
-			<div class="count">45</div>
+			<div class="count">{{likesTotal}}</div>
 			<div class="like" [ngClass]="{
 				is_animating: animalike,
 				not_animating: !animalike
-			}" (click)="likedPage()"></div>
+			}" (mouseup)="likedPage($event)"></div>
 		</div>
   </div>
 </div>

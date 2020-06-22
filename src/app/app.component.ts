@@ -49,7 +49,12 @@ export class AppComponent {
   fullpage_api: any;
 
   isloadingPage: boolean = true;
+
   animalike: boolean = false;
+  likesTotal: number = 0;
+  likesUser: number = 0;
+  likesIps;
+  likesInterval = 0;
 
   DatosPersonales = {
     nombre: "_", //"Enrique Sanchez Q.",
@@ -140,11 +145,36 @@ export class AppComponent {
     this.dialogTechActive = false;
   }
 
-  likedPage() {
+  likedPage(event) {
+    this.likesUser += 1;
+
     this.animalike = true;
-    setTimeout(() => {
-      this.animalike = false;
-    }, 1500);
+
+    if (event.detail != this.likesInterval) {
+      setTimeout(() => {
+        console.log("Click LIKE!!!", this.likesUser, event);
+        this.animalike = false;
+        console.log("enviar data", this.likesInterval);
+        this.likesInterval = event.detail;
+      }, 1200);
+    }
+  }
+  sendLikes() {
+    this.servNode
+      .setLikes({
+        likes: this.likesTotal + this.likesUser,
+        ips: [
+          ...this.likesIps,
+          {
+            likes: this.likesUser,
+            ip: "190.0.0.3",
+          },
+        ],
+      })
+      .subscribe((res) => {
+        console.log("Actualiza LIKES!!!");
+        this.likesTotal = this.likesTotal + this.likesUser;
+      });
   }
 
   renderPostMedium() {
@@ -176,6 +206,12 @@ export class AppComponent {
       this.DatosPersonales.titulo = info["result"][0].titulo;
 
       this.isloadingPage = false;
+    });
+
+    const likes = this.servNode.getLikes().subscribe((like) => {
+      console.log(like["result"][0]);
+      this.likesTotal = like["result"][0].likes;
+      this.likesIps = like["result"][0].ips;
     });
   }
 

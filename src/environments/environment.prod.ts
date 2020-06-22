@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  pathService: "https://serviceskikepe.herokuapp.com",
 };
