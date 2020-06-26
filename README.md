@@ -20,9 +20,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Tecnologías utilizadas
 
-• FRONTEND<br/>
+• <b>FRONTEND</b><br/>
 &nbsp;&nbsp;∟ Angular<br/>
-&nbsp;&nbsp;∟ Bootstrap
+&nbsp;&nbsp;∟ Bootstrap<br/>
+&nbsp;&nbsp;∟ rxjs<br/>
+&nbsp;&nbsp;∟ fontawesome<br/>
+&nbsp;&nbsp;∟ gsap<br/>
 
 ### Credits
 
