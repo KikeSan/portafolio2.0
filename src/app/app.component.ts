@@ -66,6 +66,8 @@ export class AppComponent implements OnInit {
   likesUser: number = 0;
   likesIps;
   likesInterval = 0;
+  likeInterval;
+  likeClicked = false;
 
   DatosPersonales = {
     nombre: "_", //"Enrique Sanchez Q.",
@@ -153,10 +155,7 @@ export class AppComponent implements OnInit {
   }
 
   getRef(fullPageRef) {
-    console.log("SET FULLPAGE");
-
     this.fullpage_api = fullPageRef;
-    console.log("FULLPAGE API", this.fullpage_api);
   }
 
   openDialog() {
@@ -164,10 +163,87 @@ export class AppComponent implements OnInit {
     /* gsap.to(".dialogTech__content", {
       x: 50,
       delay: 2,
-    }); */
+		}); */
+    TweenMax.fromTo(
+      ".dialogTech__content",
+      1,
+      {
+        scale: 0.2,
+        opacity: 0,
+        y: 100,
+      },
+      {
+        scale: 1,
+        y: 0,
+        ease: Back.easeInOut,
+        opacity: 1,
+      }
+    );
   }
   closeDialog() {
     this.dialogTechActive = false;
+    TweenMax.fromTo(
+      ".dialogTech__content",
+      1,
+      {
+        opacity: 1,
+      },
+      {
+        y: 100,
+        opacity: 0,
+        ease: Back.easeInOut,
+        //onComplete: this.dialogCerrado,
+      }
+    );
+  }
+  dialogCerrado() {
+    console.log("function cerrar dialog complete");
+    this.dialogTechActive = false;
+    console.log("boolean", this.dialogTechActive);
+  }
+
+  likeClick() {
+    console.log("likeClick:::");
+
+    this.repeatAnimLike();
+  }
+  likeDown() {
+    console.log("likeDown:::");
+    if (this.likesUser < 20) {
+      this.likesUser += 1;
+    }
+    TweenMax.fromTo(
+      ".counter",
+      0.3,
+      { opacity: 0, y: 2, scale: 1.5 },
+      { opacity: 1, y: 0, scale: 1 }
+    );
+    TweenMax.fromTo(
+      ".counter",
+      0.5,
+      { opacity: 1, y: 0 },
+      { opacity: 0, y: -15, delay: 0.7 }
+    );
+
+    this.likeInterval = setInterval(() => {
+      this.repeatAnimLike();
+    }, 500);
+  }
+  likeUp() {
+    console.log("likeUp:::");
+    clearInterval(this.likeInterval);
+    this.animalike = false;
+    if (this.likesUser < 20) {
+      this.sendLikes();
+    }
+  }
+
+  repeatAnimLike() {
+    console.log("repeatAnimLike:::");
+    this.animalike = true;
+    setTimeout(() => {
+      this.animalike = false;
+    }, 500);
   }
 
   likedPage(event) {
@@ -180,8 +256,8 @@ export class AppComponent implements OnInit {
         console.log("Click LIKE!!!", this.likesUser, event);
         this.animalike = false;
         console.log("enviar data", this.likesInterval);
-        this.likesInterval = event.detail;
       }, 1200);
+      this.likesInterval = event.detail;
     }
   }
   sendLikes() {
@@ -197,8 +273,9 @@ export class AppComponent implements OnInit {
         ],
       })
       .subscribe((res) => {
-        console.log("Actualiza LIKES!!!");
-        this.likesTotal = this.likesTotal + this.likesUser;
+        console.log("Actualiza LIKES!!!", res);
+        //this.likesTotal = this.likesTotal + this.likesUser;
+        this.likesTotal += 1;
       });
   }
 

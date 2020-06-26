@@ -169,6 +169,7 @@
     //padding: 0 15px 0px 15px;
     border-radius: 5px 0 0 5px;
     pointer-events: all;
+    position: relative;
     .count {
       line-height: 52px;
     }
@@ -195,6 +196,20 @@
           background-position: right;
         }
       }
+		}
+		.likedClicked{
+			background-position: right;
+		}
+    .counter {
+      position: absolute;
+      right: 10px;
+      top: -10px;
+      width: 30px;
+      text-align: center;
+      font-size: 12px;
+      background: #ff214f;
+      border-radius: 3px;
+      opacity: 0;
     }
   }
 }
@@ -660,6 +675,7 @@ li.itemRedes {
               display: block;
               width: 12px;
               height: 12px;
+              border-radius: 2px;
               background: rgba(255, 255, 255, 0.2);
               margin: 2px;
               border: 2px solid transparent;
@@ -827,6 +843,11 @@ li.itemRedes {
   justify-content: center;
   align-items: center;
   color: $azul;
+  @include transition(all 0.3s 0s ease-out);
+  &.dNone {
+    display: none;
+    @include transition(all 0.3s 0s ease-out);
+  }
   &__content {
     padding: 50px;
     background: white;

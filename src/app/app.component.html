@@ -39,10 +39,14 @@
         class="like"
         [ngClass]="{
           is_animating: animalike,
-          not_animating: !animalike
+          not_animating: !animalike,
+          likedClicked: likedClicked
         }"
-        (mouseup)="likedPage($event)"
+        (click)="likeClick()"
+        (mousedown)="likeDown()"
+        (mouseup)="likeUp()"
       ></div>
+      <div class="counter">+{{ likesUser }}</div>
     </div>
   </div>
 </div>
@@ -449,7 +453,13 @@
   </div>
 </div>
 
-<div class="dialogTech" *ngIf="dialogTechActive">
+<!-- <div class="dialogTech" [className]="
+dialogTechActive ? 'dialogTech dFlex' : ' dialogTech dNone'
+" *ngIf="dialogTechActive"> -->
+<div
+  class="dialogTech"
+  [className]="dialogTechActive ? 'dialogTech dFlex' : ' dialogTech dNone'"
+>
   <div class="dialogTech__content" #dialogTechID>
     <div class="dialogTech__title">
       <fa-icon [icon]="faCogs" class="closeIcon mr-2"></fa-icon>
