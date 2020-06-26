@@ -315,7 +315,7 @@ export class AppComponent implements OnInit {
   }
 
   renderPostMedium() {
-    const data = this.postMedium.getData().subscribe((res) => {
+    this.postMedium.getData().subscribe((res) => {
       console.log(res);
       this.postMediumText = res["feed"]["title"];
       this.postMediumLink = res["feed"]["link"];
@@ -324,6 +324,30 @@ export class AppComponent implements OnInit {
       this.postsMedium = res["items"].filter((item) => {
         return item["categories"].length > 0;
       });
+
+      TweenMax.from(".medium .info", 1, {
+        y: 50,
+        opacity: 0,
+        ease: Back.easeInOut,
+      });
+      TweenMax.from(".medium .posts", 1, {
+        y: 50,
+        opacity: 0,
+        ease: Back.easeInOut,
+        delay: 0.5,
+      });
+      /* let temp = 0;
+      for (let i = 0; i < this.postsMedium.length; i++) {
+        console.log("anima Post", temp);
+
+        TweenMax.from(".itemPost", 0.7, {
+          y: 100,
+          opacity: 0,
+          ease: Back.easeInOut,
+          delay: temp,
+        });
+        temp += 0.2;
+      } */
     });
   }
 
