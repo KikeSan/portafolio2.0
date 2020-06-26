@@ -1,4 +1,11 @@
-import { Component } from "@angular/core";
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  OnInit,
+  ViewContainerRef,
+  AfterViewInit,
+} from "@angular/core";
 import {
   faAngular,
   faGithub,
@@ -20,12 +27,16 @@ import * as moment from "moment";
 import { ServNodeService } from "./services/serv-node.service";
 import { GithubApiService } from "./services/github-api.service";
 
+import { TweenMax, Back, Power1 } from "gsap";
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  @ViewChild("bio", { static: false }) bio: ElementRef;
+
   faAngular = faAngular;
   faGithub = faGithub;
   faLinkedinIn = faLinkedinIn;
@@ -38,7 +49,7 @@ export class AppComponent {
   faCogs = faCogs;
 
   title = "webpage";
-  dialogTechActive = true;
+  dialogTechActive = false;
 
   myStyle: object = {};
   myParams: object = {};
@@ -107,7 +118,8 @@ export class AppComponent {
   constructor(
     private postMedium: PostMediumService,
     private servNode: ServNodeService,
-    private ghService: GithubApiService
+    private ghService: GithubApiService,
+    private elementRef: ElementRef
   ) {
     // for more details on config options please visit fullPage.js docs
     this.config = {
@@ -117,6 +129,9 @@ export class AppComponent {
       menu: "#menu",
       navigation: true,
 
+      afterLoad: (origin, destination, direction) => {
+        console.log("Estoy en: ", destination.index);
+      },
       // fullpage callbacks
       afterResize: () => {
         console.log("After resize");
@@ -127,6 +142,9 @@ export class AppComponent {
           ? (this.menuredesBar = true)
           : (this.menuredesBar = false);
 
+        if (destination.index == 2) {
+          this.renderSkills();
+        }
         if (destination.index == 4) {
           this.renderPostMedium();
         }
@@ -135,11 +153,18 @@ export class AppComponent {
   }
 
   getRef(fullPageRef) {
+    console.log("SET FULLPAGE");
+
     this.fullpage_api = fullPageRef;
+    console.log("FULLPAGE API", this.fullpage_api);
   }
 
   openDialog() {
     this.dialogTechActive = true;
+    /* gsap.to(".dialogTech__content", {
+      x: 50,
+      delay: 2,
+    }); */
   }
   closeDialog() {
     this.dialogTechActive = false;
@@ -177,6 +202,41 @@ export class AppComponent {
       });
   }
 
+  renderSkills() {
+    TweenMax.from(".animFront", 1, {
+      y: 50,
+      opacity: 0,
+      ease: Back.easeOut,
+      delay: 0.5,
+    });
+    TweenMax.from(".animBack", 1, {
+      y: 50,
+      opacity: 0,
+      ease: Back.easeOut,
+      delay: 0.7,
+    });
+    TweenMax.from(".animMobile", 1, {
+      y: 50,
+      opacity: 0,
+      ease: Back.easeOut,
+      delay: 0.9,
+    });
+
+    TweenMax.from(".dojo", 1, {
+      x: 200,
+      opacity: 0,
+      ease: Back.easeInOut,
+      delay: 1.5,
+    });
+
+    TweenMax.to(".dojo", 2, {
+      y: 15,
+      repeat: -1,
+      yoyo: true,
+      ease: Power1.easeOut,
+    });
+  }
+
   renderPostMedium() {
     const data = this.postMedium.getData().subscribe((res) => {
       console.log(res);
@@ -199,16 +259,37 @@ export class AppComponent {
     });
   }
 
+  private get _bio(): HTMLElement {
+    return this.bio.nativeElement;
+  }
+
   renderInfoPersonal() {
-    const data = this.servNode.getInfoPersonal().subscribe((info) => {
+    this.servNode.getInfoPersonal().subscribe((info) => {
       console.log("Información personal", info["result"][0]);
       this.DatosPersonales.nombre = info["result"][0].nombreCompleto;
       this.DatosPersonales.titulo = info["result"][0].titulo;
 
       this.isloadingPage = false;
+
+      /* gsap.to(".name", {
+        x: 50,
+        delay: 2,
+			}); */
+
+      /* TweenMax.to("h1", 1, {
+        opacity: 0,
+        duration: 1,
+        stagger: 0.5,
+			}); */
+      //gsap.to(this.bio.nativeElement, 1, { opacity: 0, delay: 1 });
+      TweenMax.from(this.bio.nativeElement, 1, {
+        x: "-50",
+        opacity: 0,
+        ease: Back.easeOut,
+      });
     });
 
-    const likes = this.servNode.getLikes().subscribe((like) => {
+    this.servNode.getLikes().subscribe((like) => {
       console.log(like["result"][0]);
       this.likesTotal = like["result"][0].likes;
       this.likesIps = like["result"][0].ips;

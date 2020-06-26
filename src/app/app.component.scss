@@ -834,6 +834,7 @@ li.itemRedes {
     width: 100%;
     max-width: 540px;
     position: relative;
+    //box-shadow: 0px 0px 25px #2197ff;
   }
   &__title {
     text-align: center;
@@ -850,7 +851,7 @@ li.itemRedes {
     margin: 30px 0 15px;
   }
   &__image {
-    width: 65px;
+    width: 50px;
     margin: 4px;
   }
 
