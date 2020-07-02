@@ -26,6 +26,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 &nbsp;&nbsp;∟ rxjs<br/>
 &nbsp;&nbsp;∟ fontawesome<br/>
 &nbsp;&nbsp;∟ gsap<br/>
+&nbsp;&nbsp;∟ momentjs<br/>
 
 • <b>BACKEND</b><br/>
 &nbsp;&nbsp;∟ NodeJS<br/>
