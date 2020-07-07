@@ -13,7 +13,9 @@
   </ul>
 </div>
 
-<div class="header container-fluid">
+<div
+  [className]="dialogTechActive ? 'header container-fluid filterApplyOn' : 'header container-fluid filterApplyOff'"
+>
   <div class="row">
     <div class="logo col align-self-start"></div>
     <ul id="menu" class="nav align-self-end">
@@ -93,8 +95,10 @@
       </ul>
     </div>
   </div>
-  <div class="section sectionSobremi" (click)="fullpage_api.moveSectionDown()">
-    Some sobremi
+  <div class="section sectionSobremi">
+    <div class="container-fluid aboutme">
+      <h1>Sobre mí</h1>
+    </div>
   </div>
   <div class="section sectionSkills">
     <div class="container-fluid skills">
@@ -504,7 +508,7 @@ dialogTechActive ? 'dialogTech dFlex' : ' dialogTech dNone'
       class="dialogTech__image"
     />
 
-    <h4>Backtend</h4>
+    <h4>Backend</h4>
     <img src="../assets/logosTech/node.png" alt="" class="dialogTech__image" />
     <img src="../assets/logosTech/mongo.png" alt="" class="dialogTech__image" />
     <img
