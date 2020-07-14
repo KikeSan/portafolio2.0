@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
   likesIps;
   likesInterval = 0;
   likeInterval;
-  likeClicked = false;
+  likedClicked = false;
 
   DatosPersonales = {
     nombre: "_", //"Enrique Sanchez Q.",
@@ -116,6 +116,11 @@ export class AppComponent implements OnInit {
 
   dataGithub: any = {};
   developMember = "Developer Program Member";
+
+  idUsuario;
+  ipUsuario;
+  fechaUsuario;
+  horaUsuario;
 
   constructor(
     private postMedium: PostMediumService,
@@ -204,12 +209,12 @@ export class AppComponent implements OnInit {
 
   likeClick() {
     console.log("likeClick:::");
-
+    this.likedClicked = true;
     this.repeatAnimLike();
   }
   likeDown() {
     console.log("likeDown:::");
-    if (this.likesUser < 20) {
+    if (this.likesUser <= 10) {
       this.likesUser += 1;
     }
     TweenMax.fromTo(
@@ -233,7 +238,7 @@ export class AppComponent implements OnInit {
     console.log("likeUp:::");
     clearInterval(this.likeInterval);
     this.animalike = false;
-    if (this.likesUser < 20) {
+    if (this.likesUser <= 10) {
       this.sendLikes();
     }
   }
@@ -261,19 +266,39 @@ export class AppComponent implements OnInit {
     }
   }
   sendLikes() {
+    const dataUser = {
+      likes: this.likesUser,
+      ip: this.ipUsuario,
+      darkMode: false,
+      fecha: this.fechaUsuario,
+      hora: this.horaUsuario,
+    };
     this.servNode
-      .setLikes({
+      .updateLikes({
         likes: this.likesTotal + this.likesUser,
-        ips: [
+        fecha: this.fechaUsuario,
+        /* ips: [
           ...this.likesIps,
           {
             likes: this.likesUser,
             ip: "190.0.0.3",
           },
-        ],
+        ], */
       })
       .subscribe((res) => {
         console.log("Actualiza LIKES!!!", res);
+        if (this.idUsuario) {
+          this.servNode
+            .updateUser(this.idUsuario, dataUser)
+            .subscribe((res) => {
+              console.log("Actualiza usuario", res);
+            });
+        } else {
+          this.servNode.setUser(dataUser).subscribe((res) => {
+            console.log("Agrega usuario", res);
+          });
+        }
+
         //this.likesTotal = this.likesTotal + this.likesUser;
         this.likesTotal += 1;
       });
@@ -423,6 +448,26 @@ export class AppComponent implements OnInit {
     console.log("LOAD INIT");
 
     this.renderGithubData();
+
+    fetch("https://api.ipify.org?format=json")
+      .then((response) => response.json())
+      .then((json) => {
+        this.ipUsuario = json.ip;
+
+        moment.locale("es");
+        this.fechaUsuario = moment().format("L");
+        this.horaUsuario = moment().format("LT");
+
+        this.servNode.getUser(this.ipUsuario).subscribe((res) => {
+          console.log("Usuario=>", res);
+          if (res["status"] == 200) {
+            console.log("Usuario=>", res["result"][0]["_id"]);
+            this.idUsuario = res["result"][0]["_id"];
+            this.likesUser = res["result"][0]["likes"];
+            this.likedClicked = true;
+          }
+        });
+      });
 
     this.myStyle = {
       position: "fixed",
