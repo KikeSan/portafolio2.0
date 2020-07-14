@@ -472,7 +472,7 @@ export class AppComponent implements OnInit {
     this.myStyle = {
       position: "fixed",
       width: "100%",
-      height: "100%",
+      height: "100vh",
       "z-index": 1,
       top: 0,
       left: 0,
@@ -508,7 +508,7 @@ export class AppComponent implements OnInit {
           },
         },
         opacity: {
-          value: 0.2,
+          value: 0.3,
           random: false,
           anim: {
             enable: false,
