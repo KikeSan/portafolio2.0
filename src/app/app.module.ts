@@ -9,9 +9,21 @@ import { ParticlesModule } from "angular-particle";
 
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { HttpClientModule } from "@angular/common/http";
+import { AboutmeComponent } from "./aboutme/aboutme.component";
+import { SkillsComponent } from "./skills/skills.component";
+import { BlogComponent } from "./blog/blog.component";
+import { ProjectsComponent } from './projects/projects.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    AboutmeComponent,
+    SkillsComponent,
+    BlogComponent,
+    ProjectsComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,7 +32,7 @@ import { HttpClientModule } from "@angular/common/http";
     FontAwesomeModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [SkillsComponent, BlogComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

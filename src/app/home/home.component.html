@@ -1,0 +1,18 @@
+<particles
+  [style]="myStyle"
+  [width]="width"
+  [height]="height"
+  [params]="myParams"
+></particles>
+<div class="baseLogo"></div>
+<div class="bio" id="bio" #bio>
+  <h1>{{ DatosPersonales.nombre }}</h1>
+  <div class="title">{{ DatosPersonales.titulo }}</div>
+  <ul class="redesBio">
+    <li class="itemRedes" *ngFor="let red of menuredes">
+      <a [attr.href]="red.link" class="itemLink" target="_blank">
+        <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>
+      </a>
+    </li>
+  </ul>
+</div>
