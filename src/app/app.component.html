@@ -3,7 +3,9 @@
     menuredesBar ? 'menuredesBar menuActive' : ' menuredesBar menuDesactive'
   "
 >
-  <a href="#" class="logoKike">K</a>
+  <a href="#" class="logoKike">
+    <img src="../assets/logoKike.svg" alt="" />
+  </a>
   <ul>
     <li class="itemRedes" *ngFor="let red of menuredes">
       <a [attr.href]="red.link" class="itemLink" target="_blank">
