@@ -2,9 +2,9 @@
   <img src="https://kike.pe/img/favicon-32.png" alt="TaskMaker"/>
 </p>
 
-[![Awesome Badges](https://img.shields.io/badge/v-2.0.0-ff214f.svg)](https://github.com/KikeSan/portafolio2.0)
 [![Awesome Badges](https://img.shields.io/badge/DEV-Frontend-0c1239.svg)](https://github.com/KikeSan/portafolio2.0)
-[![Awesome Badges](https://img.shields.io/badge/TECH-Angular-E23237.svg)](https://github.com/KikeSan/portafolio2.0)
+[![Awesome Badges](https://img.shields.io/badge/TECH-Angular-ff214f.svg)](https://github.com/KikeSan/portafolio2.0)
+[![Awesome Badges](https://img.shields.io/badge/v-2.0.0-green.svg)](https://github.com/KikeSan/portafolio2.0)
 
 # Personal Webpage
 
