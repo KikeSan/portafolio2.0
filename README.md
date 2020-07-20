@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://kike.pe/img/favicon-32.png" alt="TaskMaker"/>
+  <img src="https://kike.pe/img/logoAzul.png" alt="LogoKike"/>
 </p>
 
 [![Awesome Badges](https://img.shields.io/badge/DEV-Frontend-0c1239.svg)](https://github.com/KikeSan/portafolio2.0)
