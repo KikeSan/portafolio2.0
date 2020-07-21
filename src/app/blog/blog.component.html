@@ -1,7 +1,23 @@
 <div class="menuBlog">
   <ul>
-    <li><a href="#">Medium</a></li>
-    <li><a href="#">Github</a></li>
+    <li>
+      <a
+        href="#blog"
+        (mouseover)="mouseOverTo($event)"
+        (mouseout)="mouseOutTo($event)"
+        >Medium</a
+      >
+    </li>
+    <li>
+      <a
+        href="#blog/slide2"
+        id="menuBlog_btn"
+        (mouseover)="mouseOverTo($event)"
+        (mouseout)="mouseOutTo($event)"
+      >
+        <span>Github</span></a
+      >
+    </li>
   </ul>
 </div>
 <div class="slide" data-anchor="slide1">

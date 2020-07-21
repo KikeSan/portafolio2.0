@@ -4,6 +4,7 @@
   position: absolute;
   right: 45px;
   top: 12%;
+  z-index: 9;
   ul {
     list-style: none;
     li {
@@ -14,6 +15,19 @@
         padding: 5px 10px 7px;
         text-transform: uppercase;
         margin: 5px;
+        border-radius: 3px;
+        display: block;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+        //will-change: transform;
+        &:hover {
+          text-decoration: none;
+          background: $rojoDark;
+        }
+        span {
+          pointer-events: none;
+        }
       }
     }
   }

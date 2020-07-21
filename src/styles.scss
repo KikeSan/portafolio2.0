@@ -48,6 +48,11 @@ body {
   @extend %bgWeb;
   //background-color: #0e2773 !important;
   color: white !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  will-change: transform;
+
   &::after {
     content: "";
     background-image: url(./assets/noise-dark.png?background=#09187800&noise=1b51a1&density=54&opacity=75);

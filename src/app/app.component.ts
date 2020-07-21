@@ -119,6 +119,7 @@ export class AppComponent implements OnInit {
       anchors: ["home", "sobremi", "habilidades", "proyectos", "blog"],
       menu: "#menu",
       navigation: true,
+      controlArrows: false,
 
       afterLoad: (origin, destination, direction) => {
         console.log("Estoy en: ", destination.index);
@@ -140,6 +141,7 @@ export class AppComponent implements OnInit {
         if (destination.index == 4) {
           //this.renderPostMedium();
           //this.blog.renderPostMedium();
+          //this.blog.initBTNevents();
         }
       },
     };

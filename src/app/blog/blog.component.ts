@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { PostMediumService } from "../services/post-medium.service";
-import { TweenMax, Back, Power1 } from "gsap";
+import { TweenMax, Back, Power1, Elastic } from "gsap";
 import { GithubApiService } from "../services/github-api.service";
 import * as moment from "moment";
 import {
@@ -15,6 +15,8 @@ import {
   styleUrls: ["./blog.component.scss"],
 })
 export class BlogComponent implements OnInit {
+  @Input() fullpage_api: any;
+
   faCalendarAlt = faCalendarAlt;
   faTimes = faTimes;
 
@@ -34,6 +36,35 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     this.renderPostMedium();
     this.renderGithubData();
+    /* document
+      .getElementById("menuBlog_btn")
+      .addEventListener("mouseover", this.mouseOverTo);
+    document
+      .getElementById("menuBlog_btn")
+      .addEventListener("mouseout", this.mouseOutTo); */
+  }
+
+  changeSlideTo(idSlide) {
+    this.fullpage_api.moveTo("slide1", idSlide);
+  }
+
+  mouseOverTo(e) {
+    //console.log("Over_", e.target);
+
+    TweenMax.to(e.target, 0.2, {
+      scale: 1.15,
+      //opacity: 0.2,
+      ease: Back.easeOut,
+    });
+  }
+  mouseOutTo(e) {
+    //console.log("Over_", e.target);
+
+    TweenMax.to(e.target, 1, {
+      scale: 1,
+      //opacity: 0.2,
+      ease: Elastic.easeOut,
+    });
   }
 
   changeFormatDate(fecha) {
