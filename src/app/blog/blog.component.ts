@@ -74,7 +74,7 @@ export class BlogComponent implements OnInit {
 
   renderPostMedium() {
     this.postMedium.getData().subscribe((res) => {
-      console.log(res);
+      console.log("Post Medium", res);
       this.postMediumText = res["feed"]["title"];
       this.postMediumLink = res["feed"]["link"];
       this.postMediumImage = res["feed"]["image"];
@@ -83,17 +83,6 @@ export class BlogComponent implements OnInit {
         return item["categories"].length > 0;
       });
 
-      TweenMax.from(".medium .info", 1, {
-        y: 50,
-        opacity: 0,
-        ease: Back.easeInOut,
-      });
-      TweenMax.from(".medium .posts", 1, {
-        y: 50,
-        opacity: 0,
-        ease: Back.easeInOut,
-        delay: 0.5,
-      });
       /* let temp = 0;
       for (let i = 0; i < this.postsMedium.length; i++) {
         console.log("anima Post", temp);
@@ -106,6 +95,20 @@ export class BlogComponent implements OnInit {
         });
         temp += 0.2;
       } */
+    });
+  }
+
+  animaMedium() {
+    TweenMax.from(".medium .info", 1, {
+      y: 50,
+      opacity: 0,
+      ease: Back.easeInOut,
+    });
+    TweenMax.from(".medium .posts", 1, {
+      y: 50,
+      opacity: 0,
+      ease: Back.easeInOut,
+      delay: 0.5,
     });
   }
 

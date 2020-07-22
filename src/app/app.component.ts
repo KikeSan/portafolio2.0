@@ -139,6 +139,7 @@ export class AppComponent implements OnInit {
           this.skills.renderSkills();
         }
         if (destination.index == 4) {
+          this.blog.animaMedium();
           //this.renderPostMedium();
           //this.blog.renderPostMedium();
           //this.blog.initBTNevents();

@@ -1,22 +1,15 @@
 <div class="menuBlog">
   <ul>
     <li>
-      <a
+      <!-- <a
         href="#blog"
         (mouseover)="mouseOverTo($event)"
         (mouseout)="mouseOutTo($event)"
-        >Medium</a
-      >
+        >Medium</a> -->
+      <a href="#blog">Medium</a>
     </li>
     <li>
-      <a
-        href="#blog/slide2"
-        id="menuBlog_btn"
-        (mouseover)="mouseOverTo($event)"
-        (mouseout)="mouseOutTo($event)"
-      >
-        <span>Github</span></a
-      >
+      <a href="#blog/slide2">Github</a>
     </li>
   </ul>
 </div>
@@ -42,7 +35,7 @@
       <div class="col-9 posts">
         <div class="container">
           <div class="row">
-            <div class="col-4" *ngFor="let post of postsMedium">
+            <div class="col-6" *ngFor="let post of postsMedium">
               <a [attr.href]="post.link" target="_blank" class="itemPost">
                 <img [src]="post.thumbnail" alt="" />
                 <div class="infoPost">
@@ -143,19 +136,21 @@
       </div>
       <div class="col-9 contributions">
         <div class="container">
-          <div class="row justify-content-between" *ngIf="dataGithub">
-            <div class="title__commits">
-              {{
-                dataGithub.contributionsCollection?.contributionCalendar
-                  .totalContributions
-              }}
-              contribuciones en el último año
-            </div>
-            <div class="title__repos">
-              {{ dataGithub.repositories?.totalCount }} repositorios
+          <div class="row" *ngIf="dataGithub">
+            <div class="col d-flex justify-content-between">
+              <div class="title__commits">
+                <b>{{
+                  dataGithub.contributionsCollection?.contributionCalendar
+                    .totalContributions
+                }}</b>
+                contribuciones en el último año
+              </div>
+              <div class="title__repos">
+                <b>{{ dataGithub.repositories?.totalCount }}</b> repositorios
+              </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row" style="padding: 0 15px;">
             <div class="holderCommits">
               <div class="containerColumns">
                 <div
@@ -184,11 +179,13 @@
             </div>
           </div>
           <div class="row">
-            <p class="titlePinnedRepos">Repositorios públicos destacados</p>
+            <div class="col">
+              <p class="titlePinnedRepos">Repositorios públicos destacados</p>
+            </div>
           </div>
           <div class="row">
             <div
-              class="col-4 pinnedRepo"
+              class="col-6 pinnedRepo"
               *ngFor="let pin of dataGithub.pinnedItems?.nodes"
             >
               <a [attr.href]="pin.url" target="_blank" class="linkPin">

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  pathService: "http://localhost:3001",
-  //pathService: "https://serviceskikepe.herokuapp.com",
+  //pathService: "http://localhost:3001",
+  pathService: "https://serviceskikepe.herokuapp.com",
 };
 
 /*

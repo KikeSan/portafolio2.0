@@ -1,5 +1,105 @@
 @import "../../variables.scss";
-
+%gradientSections {
+  background: rgba(13, 4, 87, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(13, 4, 87, 1) 0%,
+    rgba(9, 11, 59, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(13, 4, 87, 1)),
+    color-stop(100%, rgba(9, 11, 59, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(13, 4, 87, 1) 0%,
+    rgba(9, 11, 59, 1) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(13, 4, 87, 1) 0%,
+    rgba(9, 11, 59, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(13, 4, 87, 1) 0%,
+    rgba(9, 11, 59, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(13, 4, 87, 1) 0%,
+    rgba(9, 11, 59, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d0457', endColorstr='#090b3b', GradientType=1 );
+  /* background: rgba(38, 7, 97, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(38, 7, 97, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(38, 7, 97, 1)),
+    color-stop(100%, rgba(13, 6, 43, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(38, 7, 97, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(38, 7, 97, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(38, 7, 97, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(38, 7, 97, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#260761', endColorstr='#0d062b', GradientType=1 ); */
+  /* background: rgba(22, 11, 110, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(22, 11, 110, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(22, 11, 110, 1)),
+    color-stop(100%, rgba(13, 6, 43, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(22, 11, 110, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(22, 11, 110, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(22, 11, 110, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(22, 11, 110, 1) 0%,
+    rgba(13, 6, 43, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#160b6e', endColorstr='#0d062b', GradientType=1 ); */
+}
 .menuBlog {
   position: absolute;
   right: 45px;
@@ -20,10 +120,13 @@
         -webkit-font-smoothing: antialiased;
         -moz-font-smoothing: antialiased;
         font-smoothing: antialiased;
+        font-weight: bold;
+        @include transition(all 0.3s 0s ease-out);
         //will-change: transform;
         &:hover {
           text-decoration: none;
           background: $rojoDark;
+          @include transition(all 0.3s 0s ease-out);
         }
         span {
           pointer-events: none;
@@ -77,21 +180,24 @@
   }
   .posts {
     .itemPost {
-      display: block;
+      display: flex;
       margin: 15px 0;
       cursor: pointer;
       //padding: 5px;
       img {
-        width: 100%;
-        border-radius: 7px 7px 0 0;
+        width: 180px;
+        border-radius: 5px 0px 0 5px;
       }
       .infoPost {
-        background: $azul;
-        padding: 15px;
-        border-radius: 0 0 7px 7px;
+        //width: 80%;
+        //background: $azul;
+        padding: 15px 20px;
+        border-radius: 0 5px 5px 0px;
+        flex: auto;
+        @extend %gradientSections;
         p {
           font-size: 14px;
-          margin: 5px 0;
+          margin: 0;
           color: $celesteTexto;
           font-family: $yanone;
           .itemIcon {
@@ -110,7 +216,7 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-          margin-top: 12px;
+          margin-top: 8px;
           line-height: 20px;
         }
       }
@@ -126,6 +232,8 @@
   }
 }
 .github {
+  margin-top: 30px;
+  font-family: $raleway;
   .info {
     .descPost {
       position: relative;
@@ -194,9 +302,16 @@
   }
 
   .contributions {
+    padding: 0;
     .row {
       max-width: 860px;
       margin-bottom: 10px;
+    }
+    .title__commits,
+    .title__repos {
+      b {
+        color: $yellow;
+      }
     }
     .holderCommits {
       display: flex;
@@ -208,6 +323,7 @@
       border: 1px solid #98b7f7;
       padding: 5px;
       border-radius: 4px;
+      //@extend %gradientSections;
       .containerColumns {
         display: flex;
       }
@@ -274,15 +390,18 @@
       }
     }
     .titlePinnedRepos {
-      margin: 30px 0 0;
+      margin: 20px 0 0;
     }
     .pinnedRepo {
       .linkPin {
+        @extend %gradientSections;
+        padding: 20px;
+        border-radius: 5px;
         display: block;
-        margin: 20px 0 30px;
+        margin: 0px 0 16px;
         color: rgba(255, 255, 255, 0.7);
         @include transition(all 0.3s 0s ease-out);
-        &:before {
+        /* &:before {
           content: "";
           background: rgba($azul, 0);
           width: 100%;
@@ -295,7 +414,7 @@
           border-radius: 8px;
           transform: scale(0.8);
           @include transition(all 0.3s 0s cubic-bezier(0.34, 1.56, 0.64, 1));
-        }
+        } */
         &:hover {
           text-decoration: none;
           color: rgba(255, 255, 255, 1);
@@ -303,42 +422,46 @@
           h3 {
             color: $yellow;
           }
-          &:before {
+          /* &:before {
             background: rgba($azul, 0.5);
             transform: scale(1);
             @include transition(all 0.2s 0s cubic-bezier(0.34, 1.56, 0.64, 1));
-          }
+          } */
         }
       }
       h3 {
         font-size: 18px;
         font-family: $raleway;
         font-weight: 500;
+        margin-bottom: 15px;
         svg {
           fill: white;
         }
-        &:after {
+        /* &:after {
           content: "";
           width: 100%;
           border-top: 1px solid white;
           display: block;
           margin: 7px 0;
-        }
+        } */
       }
       .description {
         font-size: 12px;
-        height: 54px;
+        height: 36px;
+        margin-bottom: 0;
       }
       .language {
         font-size: 12px;
         font-weight: 500;
         text-transform: uppercase;
-        position: relative;
+        position: absolute;
+        top: 14px;
+        right: 30px;
         padding-left: 20px;
         svg {
-          width: 14px;
+          width: 10px;
           position: absolute;
-          top: 2px;
+          top: 3px;
           left: 0;
         }
       }
