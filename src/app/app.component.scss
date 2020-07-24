@@ -170,7 +170,7 @@ li.itemRedes {
     position: relative;
     .itemIcon {
       transform: scale(1);
-      font-size: 28px;
+      font-size: 26px;
       position: absolute;
       left: 50%;
       margin-left: -13px;
@@ -199,7 +199,7 @@ li.itemRedes {
   z-index: 9;
   height: 100vh;
   background-color: $azul;
-  width: 80px;
+  width: 70px;
 
   .logoKike {
     text-align: center;
@@ -207,7 +207,7 @@ li.itemRedes {
     display: block;
     margin-top: 20px;
     img {
-      width: 50px;
+      width: 40px;
     }
   }
 
@@ -220,7 +220,7 @@ li.itemRedes {
     li {
       a {
         display: block;
-        margin: 0 9px 10px 5px;
+        margin: 0 5px 5px 5px;
       }
     }
 
@@ -368,8 +368,8 @@ li.itemRedes {
 }
 
 .filterApplyOn {
-  filter: blur(5px);
-  @include transition(all 0.3s 0s ease-out);
+  filter: blur(4px);
+  @include transition(all 0.2s 0s ease-out);
 }
 .filterApplyOff {
   filter: blur(0);

@@ -93,19 +93,19 @@ export class BlogComponent implements OnInit {
       opacity: 0,
       ease: Back.easeInOut,
     });
-		let elements = document.getElementsByClassName("animaItem");    
-		let elementsArr = Array.from(elements); 
-		
-		let temp = 0.5;
-		elementsArr.forEach(element=>{
-			TweenMax.from(element, 1, {
+    let elements = document.getElementsByClassName("animaItem");
+    let elementsArr = Array.from(elements);
+
+    let temp = 0.5;
+    elementsArr.forEach((element) => {
+      TweenMax.from(element, 1, {
         y: 70,
         opacity: 0,
         ease: Back.easeOut,
         delay: temp, //0.5,
       });
-			temp += 0.2;
-		})
+      temp += 0.1;
+    });
     /* for (let i = 0; i <= 6; i++) {
       TweenMax.from([".medium .posts #"+i], 1, {
         y: 50,

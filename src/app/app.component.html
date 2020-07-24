@@ -1,7 +1,11 @@
 <div
   [className]="
-    menuredesBar ? 'menuredesBar menuActive' : ' menuredesBar menuDesactive'
-  "
+		!menuredesBar 
+			? 'menuredesBar menuDesactive' 
+			: menuredesBar && dialogTechActive
+				? 'menuredesBar menuActive filterApplyOn'
+				: 'menuredesBar menuActive filterApplyOff'
+	"
 >
   <a href="#" class="logoKike">
     <img src="../assets/logoKike.svg" alt="" />
