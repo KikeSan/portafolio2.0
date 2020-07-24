@@ -35,7 +35,11 @@
       <div class="col-9 posts">
         <div class="container">
           <div class="row">
-            <div class="col-6" *ngFor="let post of postsMedium">
+            <div
+              class="col-6 animaItem"
+              *ngFor="let post of postsMedium; let i = index"
+              id="{{ i }}"
+            >
               <a [attr.href]="post.link" target="_blank" class="itemPost">
                 <img [src]="post.thumbnail" alt="" />
                 <div class="infoPost">

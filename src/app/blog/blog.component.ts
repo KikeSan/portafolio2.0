@@ -79,22 +79,11 @@ export class BlogComponent implements OnInit {
       this.postMediumLink = res["feed"]["link"];
       this.postMediumImage = res["feed"]["image"];
 
-      this.postsMedium = res["items"].filter((item) => {
-        return item["categories"].length > 0;
+      let temp = 0;
+      this.postsMedium = res["items"].filter((item, index) => {
+        if (item["categories"].length > 0) temp += 1;
+        return item["categories"].length > 0 && temp < 7;
       });
-
-      /* let temp = 0;
-      for (let i = 0; i < this.postsMedium.length; i++) {
-        console.log("anima Post", temp);
-
-        TweenMax.from(".itemPost", 0.7, {
-          y: 100,
-          opacity: 0,
-          ease: Back.easeInOut,
-          delay: temp,
-        });
-        temp += 0.2;
-      } */
     });
   }
 
@@ -104,12 +93,31 @@ export class BlogComponent implements OnInit {
       opacity: 0,
       ease: Back.easeInOut,
     });
-    TweenMax.from(".medium .posts", 1, {
-      y: 50,
-      opacity: 0,
-      ease: Back.easeInOut,
-      delay: 0.5,
-    });
+		let elements = document.getElementsByClassName("animaItem");    
+		let elementsArr = Array.from(elements); 
+		
+		let temp = 0.5;
+		elementsArr.forEach(element=>{
+			TweenMax.from(element, 1, {
+        y: 70,
+        opacity: 0,
+        ease: Back.easeOut,
+        delay: temp, //0.5,
+      });
+			temp += 0.2;
+		})
+    /* for (let i = 0; i <= 6; i++) {
+      TweenMax.from([".medium .posts #"+i], 1, {
+        y: 50,
+        opacity: 0,
+        ease: Back.easeInOut,
+        delay: temp, //0.5,
+        onComplete: () => {
+          console.log("CoMPLETE-------------");
+          temp += 0.2;
+        },
+      });
+    } */
   }
 
   renderGithubData() {
