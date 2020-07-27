@@ -11,10 +11,10 @@ h1 {
 }
 .baseHexagon-left {
   //position: absolute !important;
-  top: -500px !important;
-  left: -160px !important;
+  top: -150% !important;
+  left: -90% !important;
   svg {
-    height: 80vh;
+    height: 90vh;
     width: auto;
     fill: rgba($azul, 0.18);
   }

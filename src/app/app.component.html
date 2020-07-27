@@ -1,11 +1,11 @@
 <div
   [className]="
-		!menuredesBar 
-			? 'menuredesBar menuDesactive' 
-			: menuredesBar && dialogTechActive
-				? 'menuredesBar menuActive filterApplyOn'
-				: 'menuredesBar menuActive filterApplyOff'
-	"
+    !menuredesBar
+      ? 'menuredesBar menuDesactive'
+      : menuredesBar && dialogTechActive
+      ? 'menuredesBar menuActive filterApplyOn'
+      : 'menuredesBar menuActive filterApplyOff'
+  "
 >
   <a href="#" class="logoKike">
     <img src="../assets/logoKike.svg" alt="" />
@@ -109,9 +109,52 @@ dialogTechActive ? 'dialogTech dFlex' : ' dialogTech dNone'
   class="dialogTech"
   [className]="dialogTechActive ? 'dialogTech dFlex' : ' dialogTech dNone'"
 >
+  <div
+    class="contentRobot"
+    id="sceneTech"
+    data-friction-x="0.1"
+    data-friction-y="0.1"
+    data-scalar-x="25"
+    data-scalar-y="15"
+  >
+    <img src="../assets/robot.png" alt="" data-depth="0.3" />
+    <img
+      src="../assets/robot_particle1.png"
+      alt=""
+      class="particle1"
+      data-depth="1.2"
+    />
+    <img
+      src="../assets/robot_particle2.png"
+      alt=""
+      class="particle2"
+      data-depth="1"
+    />
+    <img
+      src="../assets/robot_particle3.png"
+      alt=""
+      class="particle3"
+      data-depth="0.8"
+    />
+    <img
+      src="../assets/robot_particle4.png"
+      alt=""
+      class="particle4"
+      data-depth="0.6"
+    />
+    <img
+      src="../assets/robot_particle5.png"
+      alt=""
+      class="particle5"
+      data-depth="0.4"
+    />
+  </div>
   <div class="dialogTech__content" #dialogTechID>
+    <div class="dialogTech__animation">
+      <img src="../assets/tech-animation.gif" alt="" />
+    </div>
     <div class="dialogTech__title">
-      <fa-icon [icon]="faCogs" class="closeIcon mr-2"></fa-icon>
+      <!-- <fa-icon [icon]="faCogs" class="closeIcon mr-2"></fa-icon> -->
       Tecnología web
     </div>
     <p class="dialogTech__parrafo">

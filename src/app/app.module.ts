@@ -12,8 +12,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AboutmeComponent } from "./aboutme/aboutme.component";
 import { SkillsComponent } from "./skills/skills.component";
 import { BlogComponent } from "./blog/blog.component";
-import { ProjectsComponent } from './projects/projects.component';
-import { HomeComponent } from './home/home.component';
+import { ProjectsComponent } from "./projects/projects.component";
+import { HomeComponent } from "./home/home.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { HomeComponent } from './home/home.component';
     FontAwesomeModule,
     HttpClientModule,
   ],
-  providers: [SkillsComponent, BlogComponent],
+  providers: [SkillsComponent, BlogComponent, AboutmeComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

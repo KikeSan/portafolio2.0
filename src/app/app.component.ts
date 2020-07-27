@@ -30,6 +30,8 @@ import { GithubApiService } from "./services/github-api.service";
 import { TweenMax, Back, Power1 } from "gsap";
 import { SkillsComponent } from "./skills/skills.component";
 import { BlogComponent } from "./blog/blog.component";
+import Parallax from "../../node_modules/parallax-js";
+import { AboutmeComponent } from "./aboutme/aboutme.component";
 
 @Component({
   selector: "app-root",
@@ -110,7 +112,8 @@ export class AppComponent implements OnInit {
     private ghService: GithubApiService,
     private elementRef: ElementRef,
     private skills: SkillsComponent,
-    private blog: BlogComponent
+    private blog: BlogComponent,
+    private aboutme: AboutmeComponent
   ) {
     // for more details on config options please visit fullPage.js docs
     this.config = {
@@ -134,6 +137,9 @@ export class AppComponent implements OnInit {
           ? (this.menuredesBar = true)
           : (this.menuredesBar = false);
 
+        if (destination.index == 1) {
+          this.aboutme.initParallax();
+        }
         if (destination.index == 2) {
           //this.renderSkills();
           this.skills.renderSkills();
@@ -173,6 +179,9 @@ export class AppComponent implements OnInit {
         opacity: 1,
       }
     );
+
+    let scene = document.getElementById("sceneTech");
+    let parallaxInstance = new Parallax(scene);
   }
   closeDialog() {
     this.dialogTechActive = false;

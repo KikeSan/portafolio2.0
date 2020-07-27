@@ -317,6 +317,27 @@ li.itemRedes {
     display: none;
     @include transition(all 0.3s 0s ease-out);
   }
+  .contentRobot {
+    .particle1 {
+      left: 210px !important;
+      top: 320px !important;
+    }
+    .particle2 {
+      left: 20px !important;
+      top: 160px !important;
+    }
+    .particle3 {
+      left: 90px !important;
+      top: 340px !important;
+    }
+    .particle4 {
+      left: 240px !important;
+    }
+    .particle5 {
+      left: 210px !important;
+      top: 220px !important;
+    }
+  }
   &__content {
     padding: 50px;
     background: white;
@@ -325,6 +346,22 @@ li.itemRedes {
     max-width: 540px;
     position: relative;
     //box-shadow: 0px 0px 25px #2197ff;
+  }
+  &__animation {
+    width: 100px;
+    position: absolute;
+    height: 100px;
+    top: -60px;
+    overflow: hidden;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -50px;
+    img {
+      position: absolute;
+      width: 180px;
+      left: -39px;
+      top: -17px;
+    }
   }
   &__title {
     text-align: center;
