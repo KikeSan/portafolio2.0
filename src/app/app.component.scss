@@ -198,7 +198,8 @@ li.itemRedes {
   position: absolute;
   z-index: 9;
   height: 100vh;
-  background-color: $azul;
+  //background-color: $azul;
+  @extend %gradientMenuBar;
   width: 70px;
 
   .logoKike {

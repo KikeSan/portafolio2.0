@@ -6,3 +6,23 @@ h1 {
   font-family: $raleway;
   font-weight: 600;
 }
+.baseparallax {
+  height: 300px;
+}
+.baseHexagon-left {
+  //position: absolute !important;
+  top: -500px !important;
+  left: -160px !important;
+  svg {
+    height: 80vh;
+    width: auto;
+    fill: rgba($azul, 0.18);
+  }
+}
+.imgSobreMi {
+  img {
+    top: -100px;
+    position: absolute;
+    left: 30px;
+  }
+}
