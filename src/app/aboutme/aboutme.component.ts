@@ -25,11 +25,3 @@ export class AboutmeComponent implements OnInit {
     //this.parallaxInstance.enable();
   }
 }
-/**
- * Matico nuestra salud
- * Eucalipto nuestra salud
- * Filtrante de hojas de guanabana INKANATO
- * MAIZ POP CORN INCA TRAIL 500 GR
- * Harina de arroz mi TIERRA
-
- */
