@@ -43,7 +43,7 @@
         <a
           href="#sobremi"
           class="nav-link"
-          (click)="sendGAEvent('SideBar', 'Sobre mi')"
+          (click)="sendGAEvent('Menú', 'Sobre mi')"
           ><p>Sobre mi</p></a
         >
       </li>
@@ -51,7 +51,7 @@
         <a
           href="#habilidades"
           class="nav-link"
-          (click)="sendGAEvent('SideBar', 'Habilidades')"
+          (click)="sendGAEvent('Menú', 'Habilidades')"
           ><p>Habilidades</p></a
         >
       </li>
@@ -59,15 +59,12 @@
         <a
           href="#proyectos"
           class="nav-link"
-          (click)="sendGAEvent('SideBar', 'Proyectos')"
+          (click)="sendGAEvent('Menú', 'Proyectos')"
           ><p>Proyectos</p></a
         >
       </li>
       <li data-menuanchor="blog" class="nav-item">
-        <a
-          href="#blog"
-          class="nav-link"
-          (click)="sendGAEvent('SideBar', 'Blog')"
+        <a href="#blog" class="nav-link" (click)="sendGAEvent('Menú', 'Blog')"
           ><p>Blog</p></a
         >
       </li>

@@ -15,7 +15,10 @@ export class GoogleAnalyticsService {
     eventAction: string = null,
     eventValue: number = null
   ) {
-    console.log("GAS:", eventName, eventCategory, eventLabel);
+    console.log(
+      "GA Service:",
+      eventCategory + " / " + eventName + " / " + eventLabel
+    );
 
     /* prettier-ignore */
     gtag("event", eventName, {
