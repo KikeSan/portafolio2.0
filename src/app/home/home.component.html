@@ -10,7 +10,12 @@
   <div class="title">{{ DatosPersonales.titulo }}</div>
   <ul class="redesBio">
     <li class="itemRedes" *ngFor="let red of menuredes">
-      <a [attr.href]="red.link" class="itemLink" target="_blank">
+      <a
+        [attr.href]="red.link"
+        class="itemLink"
+        target="_blank"
+        (click)="sendSocialEvent('Home', red.name)"
+      >
         <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>
       </a>
     </li>

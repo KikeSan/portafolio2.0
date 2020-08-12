@@ -32,6 +32,12 @@ import { SkillsComponent } from "./skills/skills.component";
 import { BlogComponent } from "./blog/blog.component";
 import Parallax from "../../node_modules/parallax-js";
 import { AboutmeComponent } from "./aboutme/aboutme.component";
+import { Router, NavigationEnd } from "@angular/router";
+import { GoogleAnalyticsService } from "./services/google-analytics.service";
+import { environment } from "../environments/environment";
+//import { sep } from "path";
+
+declare let gtag: Function;
 
 @Component({
   selector: "app-root",
@@ -84,7 +90,7 @@ export class AppComponent implements OnInit {
     },
     {
       icon: faInstagram,
-      link: "#",
+      link: "https://www.instagram.com/kikesan.dev/",
       name: "Instagram",
     },
     {
@@ -94,7 +100,7 @@ export class AppComponent implements OnInit {
     },
     {
       icon: faMediumM,
-      link: "#",
+      link: "https://medium.com/@kikesan",
       name: "Medium",
     },
   ];
@@ -113,8 +119,20 @@ export class AppComponent implements OnInit {
     private elementRef: ElementRef,
     private skills: SkillsComponent,
     private blog: BlogComponent,
-    private aboutme: AboutmeComponent
+    private aboutme: AboutmeComponent,
+    public router: Router,
+    private googleAnalyticsService: GoogleAnalyticsService
   ) {
+    /** GA */
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        gtag("config", "UA-123947168-1", {
+          page_title: "Homepage 2.0",
+          page_path: event.urlAfterRedirects,
+        });
+      }
+    });
+
     // for more details on config options please visit fullPage.js docs
     this.config = {
       // fullpage options
@@ -152,6 +170,15 @@ export class AppComponent implements OnInit {
         }
       },
     };
+  }
+
+  sendGAEvent(category, label) {
+
+    this.googleAnalyticsService.eventEmitter(
+      category,
+      environment.gaCategory,
+      label
+    );
   }
 
   getRef(fullPageRef) {

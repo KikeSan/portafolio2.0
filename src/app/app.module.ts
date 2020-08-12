@@ -14,6 +14,7 @@ import { SkillsComponent } from "./skills/skills.component";
 import { BlogComponent } from "./blog/blog.component";
 import { ProjectsComponent } from "./projects/projects.component";
 import { HomeComponent } from "./home/home.component";
+import { GoogleAnalyticsService } from "./services/google-analytics.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,12 @@ import { HomeComponent } from "./home/home.component";
     FontAwesomeModule,
     HttpClientModule,
   ],
-  providers: [SkillsComponent, BlogComponent, AboutmeComponent],
+  providers: [
+    SkillsComponent,
+    BlogComponent,
+    AboutmeComponent,
+    GoogleAnalyticsService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

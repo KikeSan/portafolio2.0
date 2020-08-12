@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   //pathService: "http://localhost:3001",
   pathService: "https://serviceskikepe.herokuapp.com",
-  gaCategory: "LOCAL 2.0",
+  gaCategory: "DEV 2.0",
 };
 
 /*

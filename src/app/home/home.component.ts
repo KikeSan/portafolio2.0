@@ -10,6 +10,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { ServNodeService } from "../services/serv-node.service";
 import { TweenMax, Back, Power1 } from "gsap";
+import { GoogleAnalyticsService } from "../services/google-analytics.service";
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: "app-home",
@@ -50,7 +52,7 @@ export class HomeComponent implements OnInit {
     },
     {
       icon: faInstagram,
-      link: "#",
+      link: "https://www.instagram.com/kikesan.dev/",
       name: "Instagram",
     },
     {
@@ -60,7 +62,7 @@ export class HomeComponent implements OnInit {
     },
     {
       icon: faMediumM,
-      link: "#",
+      link: "https://medium.com/@kikesan",
       name: "Medium",
     },
   ];
@@ -70,7 +72,18 @@ export class HomeComponent implements OnInit {
   width: number = 100;
   height: number = 100;
 
-  constructor(private servNode: ServNodeService) {}
+  constructor(
+    private servNode: ServNodeService,
+    private googleAnalyticsService: GoogleAnalyticsService
+  ) {}
+
+  sendSocialEvent(category, label) {
+    this.googleAnalyticsService.eventEmitter(
+      category,
+      environment.gaCategory,
+      label
+    );
+  }
 
   renderInfoPersonal() {
     this.servNode.getInfoPersonal().subscribe((info) => {

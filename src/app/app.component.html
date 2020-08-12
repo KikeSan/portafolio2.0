@@ -12,7 +12,12 @@
   </a>
   <ul>
     <li class="itemRedes" *ngFor="let red of menuredes">
-      <a [attr.href]="red.link" class="itemLink" target="_blank">
+      <a
+        [attr.href]="red.link"
+        class="itemLink"
+        target="_blank"
+        (click)="sendGAEvent('SideBar', red.name)"
+      >
         <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>
       </a>
     </li>
@@ -30,19 +35,41 @@
     <div class="logo col align-self-start"></div>
     <ul id="menu" class="nav align-self-end">
       <li data-menuanchor="home" class="nav-item">
-        <a href="#home" class="nav-link"><p>Home</p></a>
+        <a href="#home" class="nav-link" (click)="sendGAEvent('Menú', 'Home')"
+          ><p>Home</p></a
+        >
       </li>
       <li data-menuanchor="sobremi" class="nav-item">
-        <a href="#sobremi" class="nav-link"><p>Sobre mi</p></a>
+        <a
+          href="#sobremi"
+          class="nav-link"
+          (click)="sendGAEvent('SideBar', 'Sobre mi')"
+          ><p>Sobre mi</p></a
+        >
       </li>
       <li data-menuanchor="habilidades" class="nav-item">
-        <a href="#habilidades" class="nav-link"><p>Habilidades</p></a>
+        <a
+          href="#habilidades"
+          class="nav-link"
+          (click)="sendGAEvent('SideBar', 'Habilidades')"
+          ><p>Habilidades</p></a
+        >
       </li>
       <li data-menuanchor="proyectos" class="nav-item">
-        <a href="#proyectos" class="nav-link"><p>Proyectos</p></a>
+        <a
+          href="#proyectos"
+          class="nav-link"
+          (click)="sendGAEvent('SideBar', 'Proyectos')"
+          ><p>Proyectos</p></a
+        >
       </li>
       <li data-menuanchor="blog" class="nav-item">
-        <a href="#blog" class="nav-link"><p>Blog</p></a>
+        <a
+          href="#blog"
+          class="nav-link"
+          (click)="sendGAEvent('SideBar', 'Blog')"
+          ><p>Blog</p></a
+        >
       </li>
     </ul>
     <div class="likeCount">
