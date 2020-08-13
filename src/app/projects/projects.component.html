@@ -1,6 +1,6 @@
 <div class="container-fuild projects">
-	<div class="row">
-		<div class="col-2 info">
+  <div class="row">
+    <!-- <div class="col-2 info">
 			<h1>Proyectos</h1>
 			<p class="textPost">
 				Cada vez que veo algo que me sirvió en un desarrollo trato de
@@ -8,20 +8,20 @@
 				la programación. <br /><br />
 				Enjoy code!
 			</p>
-		</div>
-		<div class="col-10 proyectos">
-			<div class="container-fluid">
-				<div class="row no-gutters">
-					<div class="col-4" *ngFor="let proy of projects">
-						<a [attr.href]="proy.url" target="_blank" class="itemProy">
-							<img [src]="proy.image" alt="">
-							<div class="infoProy">
-								<div class="tituloProy">{{proy.name}}</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+		</div> -->
+    <div class="col proyectos">
+      <div class="container-fluid">
+        <div class="row no-gutters">
+          <div class="col-3 proyItem" *ngFor="let proy of projects">
+            <a [attr.href]="proy.url" target="_blank" class="itemProy">
+              <img [src]="proy.image" alt="" />
+              <div class="infoProy">
+                <div class="tituloProy">{{ proy.name }}</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

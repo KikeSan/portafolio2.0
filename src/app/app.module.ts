@@ -37,6 +37,7 @@ import { GoogleAnalyticsService } from "./services/google-analytics.service";
     SkillsComponent,
     BlogComponent,
     AboutmeComponent,
+    ProjectsComponent,
     GoogleAnalyticsService,
   ],
   bootstrap: [AppComponent],

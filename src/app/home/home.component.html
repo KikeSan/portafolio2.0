@@ -1,9 +1,9 @@
-<particles
+<!-- <particles
   [style]="myStyle"
   [width]="width"
   [height]="height"
   [params]="myParams"
-></particles>
+></particles> -->
 <div class="baseLogo"></div>
 <div class="bio" id="bio" #bio>
   <h1>{{ DatosPersonales.nombre }}</h1>
@@ -14,6 +14,8 @@
         [attr.href]="red.link"
         class="itemLink"
         target="_blank"
+        (mouseover)="onMouseOver($event)"
+        (mouseleave)="onMouseLeave($event)"
         (click)="sendSocialEvent('Home', red.name)"
       >
         <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>

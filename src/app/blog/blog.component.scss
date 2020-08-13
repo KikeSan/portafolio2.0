@@ -81,11 +81,12 @@
   .posts {
     .itemPost {
       display: flex;
+      display: -webkit-box;
       margin: 15px 0;
       cursor: pointer;
       //padding: 5px;
       img {
-        width: 180px;
+        width: 220px;
         border-radius: 5px 0px 0 5px;
       }
       .infoPost {

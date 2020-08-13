@@ -9,7 +9,7 @@ import {
   faMediumM,
 } from "@fortawesome/free-brands-svg-icons";
 import { ServNodeService } from "../services/serv-node.service";
-import { TweenMax, Back, Power1 } from "gsap";
+import { TweenMax, Back, Power1, Elastic } from "gsap";
 import { GoogleAnalyticsService } from "../services/google-analytics.service";
 import { environment } from "../../environments/environment";
 
@@ -112,10 +112,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  onMouseOver(e) {
+    console.log("Over item redes", e.currentTarget);
+    TweenMax.to(e.currentTarget, 1.5, { scale: 1.4, ease: Elastic.easeOut });
+  }
+  onMouseLeave(e) {
+    TweenMax.to(e.currentTarget, 1.5, { scale: 1, ease: Elastic.easeOut });
+  }
+
   ngOnInit() {
     this.renderInfoPersonal();
 
-    this.myStyle = {
+    /* this.myStyle = {
       position: "fixed",
       width: "100%",
       height: "100vh",
@@ -235,6 +243,6 @@ export class HomeComponent implements OnInit {
         },
       },
       retina_detect: true,
-    };
+    }; */
   }
 }

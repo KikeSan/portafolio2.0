@@ -35,6 +35,7 @@ import { AboutmeComponent } from "./aboutme/aboutme.component";
 import { Router, NavigationEnd } from "@angular/router";
 import { GoogleAnalyticsService } from "./services/google-analytics.service";
 import { environment } from "../environments/environment";
+import { ProjectsComponent } from "./projects/projects.component";
 //import { sep } from "path";
 
 declare let gtag: Function;
@@ -118,6 +119,7 @@ export class AppComponent implements OnInit {
     private ghService: GithubApiService,
     private elementRef: ElementRef,
     private skills: SkillsComponent,
+    private proyectos: ProjectsComponent,
     private blog: BlogComponent,
     private aboutme: AboutmeComponent,
     public router: Router,
@@ -162,6 +164,9 @@ export class AppComponent implements OnInit {
           //this.renderSkills();
           this.skills.renderSkills();
         }
+        if (destination.index == 3) {
+          this.proyectos.animaProyectos();
+        }
         if (destination.index == 4) {
           this.blog.animaMedium();
           //this.renderPostMedium();
@@ -173,7 +178,6 @@ export class AppComponent implements OnInit {
   }
 
   sendGAEvent(category, label) {
-
     this.googleAnalyticsService.eventEmitter(
       category,
       environment.gaCategory,
