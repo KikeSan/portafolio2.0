@@ -123,7 +123,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.renderInfoPersonal();
 
-    /* this.myStyle = {
+    this.myStyle = {
       position: "fixed",
       width: "100%",
       height: "100vh",
@@ -243,6 +243,6 @@ export class HomeComponent implements OnInit {
         },
       },
       retina_detect: true,
-    }; */
+    };
   }
 }
