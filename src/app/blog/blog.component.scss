@@ -244,7 +244,7 @@
           background: rgba(255, 255, 255, 0.2);
           margin: 2px;
           border: 2px solid transparent;
-          @include transition(all 0.3s 0s ease-out);
+          @include transition(all 0.3s 0.2s ease-out);
           /*  &.white {
 						background: rgba(255, 255, 255, 0.2);
 					} */
@@ -281,6 +281,8 @@
           &:hover {
             &.fill {
               border: 2px solid white;
+              background: white;
+              @include transition(all 0.3s 0s ease-out);
             }
             .ttip {
               opacity: 1;

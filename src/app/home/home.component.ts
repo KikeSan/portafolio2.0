@@ -112,14 +112,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onMouseOver(e) {
-    console.log("Over item redes", e.currentTarget);
-    TweenMax.to(e.currentTarget, 1.5, { scale: 1.4, ease: Elastic.easeOut });
-  }
-  onMouseLeave(e) {
-    TweenMax.to(e.currentTarget, 1.5, { scale: 1, ease: Elastic.easeOut });
-  }
-
   ngOnInit() {
     this.renderInfoPersonal();
 

@@ -27,7 +27,6 @@ import * as moment from "moment";
 import { ServNodeService } from "./services/serv-node.service";
 import { GithubApiService } from "./services/github-api.service";
 
-import { TweenMax, Back, Power1 } from "gsap";
 import { SkillsComponent } from "./skills/skills.component";
 import { BlogComponent } from "./blog/blog.component";
 import Parallax from "../../node_modules/parallax-js";
@@ -36,6 +35,7 @@ import { Router, NavigationEnd } from "@angular/router";
 import { GoogleAnalyticsService } from "./services/google-analytics.service";
 import { environment } from "../environments/environment";
 import { ProjectsComponent } from "./projects/projects.component";
+import { TweenMax, Back, Power1, Elastic } from "gsap";
 //import { sep } from "path";
 
 declare let gtag: Function;
@@ -175,6 +175,21 @@ export class AppComponent implements OnInit {
         }
       },
     };
+  }
+
+  //t1 = gsap.timeline({ repeat: 1, repeatDelay: 1 });
+
+  onMouseOver(e) {
+    //this.t1.to(e.currentTarget, { scale: 1.2, duration: 1.2 });
+    TweenMax.to(e.currentTarget, 1.2, { scale: 1.2, ease: Elastic.easeOut });
+  }
+
+  onMouseLeave(e) {
+    //this.t1.to(e.currentTarget, { scale: 1, duration: 1.2 });
+    TweenMax.to(e.currentTarget, 0.8, {
+      scale: 1,
+      ease: Back.easeOut,
+    });
   }
 
   sendGAEvent(category, label) {

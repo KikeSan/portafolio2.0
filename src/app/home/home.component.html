@@ -14,8 +14,6 @@
         [attr.href]="red.link"
         class="itemLink"
         target="_blank"
-        (mouseover)="onMouseOver($event)"
-        (mouseleave)="onMouseLeave($event)"
         (click)="sendSocialEvent('Home', red.name)"
       >
         <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>

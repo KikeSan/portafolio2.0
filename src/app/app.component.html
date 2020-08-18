@@ -15,7 +15,9 @@
       <a
         [attr.href]="red.link"
         class="itemLink"
-        target="_blank"
+				target="_blank"
+				(mouseover)="onMouseOver($event)"
+        (mouseleave)="onMouseLeave($event)"
         (click)="sendGAEvent('SideBar', red.name)"
       >
         <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>
