@@ -5,6 +5,7 @@
 [![Awesome Badges](https://img.shields.io/badge/DEV-Frontend-0c1239.svg)](https://github.com/KikeSan/portafolio2.0)
 [![Awesome Badges](https://img.shields.io/badge/TECH-Angular-ff214f.svg)](https://github.com/KikeSan/portafolio2.0)
 [![Awesome Badges](https://img.shields.io/badge/v-2.0.0-green.svg)](https://github.com/KikeSan/portafolio2.0)
+[![Awesome Badges](https://img.shields.io/badge/©-2020-blue.svg)](https://github.com/KikeSan/portafolio2.0)
 
 # Personal Webpage
 
