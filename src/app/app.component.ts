@@ -36,6 +36,7 @@ import { GoogleAnalyticsService } from "./services/google-analytics.service";
 import { environment } from "../environments/environment";
 import { ProjectsComponent } from "./projects/projects.component";
 import { TweenMax, Back, Power1, Elastic } from "gsap";
+import { HomeComponent } from "./home/home.component";
 //import { sep } from "path";
 
 declare let gtag: Function;
@@ -113,11 +114,15 @@ export class AppComponent implements OnInit {
   fechaUsuario;
   horaUsuario;
 
+  cargandoDataHome: boolean = false;
+  cargandoDataBlog: boolean = false;
+
   constructor(
     private postMedium: PostMediumService,
     private servNode: ServNodeService,
     private ghService: GithubApiService,
     private elementRef: ElementRef,
+    private home: HomeComponent,
     private skills: SkillsComponent,
     private proyectos: ProjectsComponent,
     private blog: BlogComponent,
@@ -177,19 +182,13 @@ export class AppComponent implements OnInit {
     };
   }
 
-  //t1 = gsap.timeline({ repeat: 1, repeatDelay: 1 });
-
-  onMouseOver(e) {
-    //this.t1.to(e.currentTarget, { scale: 1.2, duration: 1.2 });
-    TweenMax.to(e.currentTarget, 1.2, { scale: 1.2, ease: Elastic.easeOut });
+  actualizarCargaHome(valor: boolean) {
+    this.cargandoDataHome = valor;
+    //this.cargandoDataBlog ? this.home.animaInfoPersonal() : null;
   }
-
-  onMouseLeave(e) {
-    //this.t1.to(e.currentTarget, { scale: 1, duration: 1.2 });
-    TweenMax.to(e.currentTarget, 0.8, {
-      scale: 1,
-      ease: Back.easeOut,
-    });
+  actualizarCargaBlog(valor: boolean) {
+    this.cargandoDataBlog = valor;
+    //this.cargandoDataHome ? this.home.animaInfoPersonal() : null;
   }
 
   sendGAEvent(category, label) {

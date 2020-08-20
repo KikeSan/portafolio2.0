@@ -21,6 +21,7 @@ import { GoogleAnalyticsService } from "./services/google-analytics.service";
     AppComponent,
     AboutmeComponent,
     SkillsComponent,
+    HomeComponent,
     BlogComponent,
     ProjectsComponent,
     HomeComponent,
@@ -34,6 +35,7 @@ import { GoogleAnalyticsService } from "./services/google-analytics.service";
     HttpClientModule,
   ],
   providers: [
+    HomeComponent,
     SkillsComponent,
     BlogComponent,
     AboutmeComponent,

@@ -1,3 +1,4 @@
+<div class="holderApp" [className]="cargandoDataHome && cargandoDataBlog ? 'opacityOn' : 'opacityOff'">
 <div
   [className]="
     !menuredesBar
@@ -7,6 +8,13 @@
       : 'menuredesBar menuActive filterApplyOff'
   "
 >
+<!-- <div
+  [className]="
+    dialogTechActive
+      ? 'menuredesBar menuActive filterApplyOn'
+      : 'menuredesBar menuActive filterApplyOff'
+  "
+> -->
   <a href="#" class="logoKike">
     <img src="../assets/logoKike.svg" alt="" />
   </a>
@@ -16,14 +24,13 @@
         [attr.href]="red.link"
         class="itemLink"
 				target="_blank"
-				(mouseover)="onMouseOver($event)"
-        (mouseleave)="onMouseLeave($event)"
         (click)="sendGAEvent('SideBar', red.name)"
       >
         <fa-icon [icon]="red.icon" class="itemIcon"></fa-icon>
       </a>
     </li>
-  </ul>
+	</ul>
+	
 </div>
 
 <div
@@ -112,7 +119,7 @@
 >
   <!-- <div> -->
   <div class="section sectionHome">
-    <app-home></app-home>
+    <app-home (homeCargado)="actualizarCargaHome($event)"></app-home>
   </div>
   <div class="section sectionSobremi">
     <app-aboutme></app-aboutme>
@@ -124,7 +131,7 @@
     <app-projects></app-projects>
   </div>
   <div class="section sectionBlog">
-    <app-blog></app-blog>
+    <app-blog (blogCargado)="actualizarCargaBlog($event)"></app-blog>
   </div>
 </div>
 
@@ -269,3 +276,5 @@ dialogTechActive ? 'dialogTech dFlex' : ' dialogTech dNone'
     </a>
   </div>
 </div>
+</div>
+<!-- <div class="loading">Cargando...</div> -->

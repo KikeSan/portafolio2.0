@@ -169,7 +169,7 @@ li.itemRedes {
     text-align: center;
     position: relative;
     .itemIcon {
-      transform: scale(1);
+      //transform: scale(1);
       font-size: 26px;
       position: absolute;
       left: 50%;
@@ -177,20 +177,21 @@ li.itemRedes {
       top: 50%;
       margin-top: -22px;
       pointer-events: none;
+      @include transition(all 0.25s 0s ease-out);
       //@include transition(all 0.3s 0s cubic-bezier(0.34, 1.56, 0.64, 1));
     }
     &:hover {
       color: white;
-      /* .itemIcon {
-        transform: scale(1.2);
+      .itemIcon {
+        //transform: scale(1.2);
         //font-size: 32px;
         left: 50%;
-        margin-left: -13px;
+        //margin-left: -13px;
         top: 50%;
-        margin-top: -24px;
-        @include transition(all 0.2s 0s cubic-bezier(0.34, 1.56, 0.64, 1));
+        //margin-top: -24px;
+        @include transition(all 0s 0s ease-out);
         //transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-      } */
+      }
     }
   }
 }
@@ -200,7 +201,7 @@ li.itemRedes {
   z-index: 9;
   height: 100vh;
   //background-color: $azul;
-  @extend %gradientMenuBar;
+  //@extend %gradientMenuBar;
   width: 70px;
 
   .logoKike {
@@ -397,6 +398,14 @@ li.itemRedes {
   }
 }
 
+.loading {
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 99999999;
+}
+
 .filterApplyOn {
   filter: blur(4px);
   @include transition(all 0.2s 0s ease-out);
@@ -404,4 +413,12 @@ li.itemRedes {
 .filterApplyOff {
   filter: blur(0);
   @include transition(all 0.2s 0s ease-out);
+}
+
+.opacityOff {
+  opacity: 0;
+}
+.opacityOn {
+  opacity: 1;
+  @include transition(all 0.3s 0s ease-out);
 }

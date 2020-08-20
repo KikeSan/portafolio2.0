@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { PostMediumService } from "../services/post-medium.service";
 import { TweenMax, Back, Power1, Elastic } from "gsap";
 import { GithubApiService } from "../services/github-api.service";
@@ -16,6 +16,7 @@ import {
 })
 export class BlogComponent implements OnInit {
   @Input() fullpage_api: any;
+  @Output() blogCargado = new EventEmitter<boolean>();
 
   faCalendarAlt = faCalendarAlt;
   faTimes = faTimes;
@@ -25,8 +26,15 @@ export class BlogComponent implements OnInit {
   postMediumImage = "";
   postsMedium;
 
-  dataGithub: any = {};
+  dataGithub: any = {
+    status: {
+      message: "",
+    },
+  };
   developMember = "Developer Program Member";
+
+  loadMedium: boolean = false;
+  loadGithub: boolean = false;
 
   constructor(
     private postMedium: PostMediumService,
@@ -45,7 +53,7 @@ export class BlogComponent implements OnInit {
   }
 
   changeSlideTo(idSlide) {
-    this.fullpage_api.moveTo("slide1", idSlide);
+    this.fullpage_api.moveTo("medium", idSlide);
   }
 
   mouseOverTo(e) {
@@ -84,6 +92,8 @@ export class BlogComponent implements OnInit {
         if (item["categories"].length > 0) temp += 1;
         return item["categories"].length > 0 && temp < 7;
       });
+
+      this.loadGithub ? this.blogCargado.emit(true) : (this.loadMedium = true);
     });
   }
 
@@ -126,6 +136,8 @@ export class BlogComponent implements OnInit {
     this.ghService.getData().subscribe((res) => {
       console.log("RES", res["body"]);
       this.dataGithub = res["body"];
+
+      this.loadMedium ? this.blogCargado.emit(true) : (this.loadGithub = true);
     });
   }
   getColorCalendarGithub(count) {

@@ -12,6 +12,7 @@ import { ServNodeService } from "../services/serv-node.service";
 import { TweenMax, Back, Power1, Elastic } from "gsap";
 import { GoogleAnalyticsService } from "../services/google-analytics.service";
 import { environment } from "../../environments/environment";
+import { Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-home",
@@ -20,6 +21,9 @@ import { environment } from "../../environments/environment";
 })
 export class HomeComponent implements OnInit {
   @ViewChild("bio", { static: false }) bio: ElementRef;
+  @ViewChild("cargo", { static: false }) cargo: ElementRef;
+  @ViewChild("redes", { static: false }) redes: ElementRef;
+  @Output() homeCargado = new EventEmitter<boolean>();
 
   faAngular = faAngular;
   faGithub = faGithub;
@@ -86,31 +90,58 @@ export class HomeComponent implements OnInit {
   }
 
   renderInfoPersonal() {
+    console.log("init Render data personal");
+
     this.servNode.getInfoPersonal().subscribe((info) => {
       console.log("Información personal", info["result"][0]);
       this.DatosPersonales.nombre = info["result"][0].nombreCompleto;
       this.DatosPersonales.titulo = info["result"][0].titulo;
 
-      //this.isloadingPage = false;
-
-      /* gsap.to(".name", {
-        x: 50,
-        delay: 2,
-			}); */
-
-      /* TweenMax.to("h1", 1, {
+      TweenMax.from(this.bio.nativeElement, 1.2, {
+        x: "-150",
         opacity: 0,
-        duration: 1,
-        stagger: 0.5,
-			}); */
-      //gsap.to(this.bio.nativeElement, 1, { opacity: 0, delay: 1 });
-      TweenMax.from(this.bio.nativeElement, 1, {
-        x: "-50",
-        opacity: 0,
+        delay: 0.7,
         ease: Back.easeOut,
       });
+      TweenMax.from(this.cargo.nativeElement, 1.2, {
+        x: "-150",
+        opacity: 0,
+        delay: 0.8,
+        ease: Back.easeOut,
+      });
+      TweenMax.from(this.redes.nativeElement, 1.2, {
+        y: "50",
+        opacity: 0,
+        delay: 1,
+        ease: Back.easeOut,
+      });
+
+      this.homeCargado.emit(true);
     });
   }
+
+  /* animaInfoPersonal() {
+    console.log("ANIMA HOME ---------------------------------");
+
+    TweenMax.from(this.bio.nativeElement, 1.2, {
+      x: "-150",
+      opacity: 0,
+      delay: 0.7,
+      ease: Back.easeOut,
+    });
+    TweenMax.from(this.cargo.nativeElement, 1.2, {
+      x: "-150",
+      opacity: 0,
+      delay: 0.8,
+      ease: Back.easeOut,
+    });
+    TweenMax.from(this.redes.nativeElement, 1.2, {
+      y: "50",
+      opacity: 0,
+      delay: 1,
+      ease: Back.easeOut,
+    });
+  } */
 
   ngOnInit() {
     this.renderInfoPersonal();

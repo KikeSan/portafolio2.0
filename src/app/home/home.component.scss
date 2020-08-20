@@ -81,7 +81,7 @@ li.itemRedes {
       top: 50%;
       margin-top: -22px;
       pointer-events: none;
-      @include transition(all 0.4s 0s ease-out);
+      @include transition(all 0.25s 0s ease-out);
       //@include transition(all 0.6s 0s cubic-bezier(0.34, 1.56, 0.64, 1));
     }
     &:hover {
@@ -116,7 +116,7 @@ li.itemRedes {
 }
 .bio {
   position: absolute;
-  top: 66%;
+  top: 74%;
   left: 4%;
   z-index: 10;
   .title {
@@ -132,10 +132,13 @@ li.itemRedes {
     font-size: 50px;
     text-transform: uppercase;
   }
-
-  .redesBio {
-    list-style: none;
-    padding: 0;
-    margin-top: 60px;
-  }
+}
+.redesBio {
+  list-style: none;
+  padding: 0;
+  margin-top: 60px;
+  position: absolute;
+  z-index: 9;
+  bottom: 30px;
+  left: 4%;
 }
